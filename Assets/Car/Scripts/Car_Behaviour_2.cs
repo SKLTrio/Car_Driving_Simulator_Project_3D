@@ -15,6 +15,8 @@ public class Car_Behaviour_2 : MonoBehaviour
     private float deceleration;
     [SerializeField]
     private float steerAngle = 20;
+    [SerializeField]
+    private Transform Pivot_Point;
 
     private float currentSpeed = 0f;
     private Vector2 moveInput;
@@ -96,6 +98,14 @@ public class Car_Behaviour_2 : MonoBehaviour
     private void Turn()
     {
         float steerInput = moveInput.x;
-        transform.Rotate(Vector3.up, steerInput * steerAngle * Time.deltaTime);
+        float rotationAmount = steerInput * steerAngle * Time.deltaTime;
+        float turnSpeed = 5.0f;
+
+        // Rotate the pivot point around the car's center point
+        Pivot_Point.Rotate(Vector3.up, rotationAmount);
+
+        // Rotate the car model itself based on the pivot point's rotation
+        transform.rotation = Quaternion.Slerp(transform.rotation, Pivot_Point.rotation, turnSpeed * Time.deltaTime);
+
     }
 }
