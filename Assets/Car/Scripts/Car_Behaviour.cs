@@ -1,45 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.InputSystem;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Car_Behaviour : MonoBehaviour
 {
-    [SerializeField]
-    Car_Control_Actions Car_Controls;
-
-    [SerializeField]
-    public float Move_Max_Speed;
-
-    [SerializeField]
-    public float Acceleration;
-
-    [SerializeField]
-    public float Deceleration;
-
-    [SerializeField]
-    public float Traction;
-
-    [SerializeField]
-    public float Steer_Angle = 20;
-
-    private float currentSpeed = 0f;
     private Rigidbody Rigid_Body;
+    private Car_Control_Actions Car_Input_Controls;
+
+    [SerializeField]
+    private GameObject First_Person_Camera;
+
+    [SerializeField]
+    private GameObject Third_Person_Camera;
+
+    [SerializeField]
+    private float Max_Speed = 5f;
+
+    [SerializeField] 
+    private float Acceleration_Speed = 1f;
+
+    [SerializeField] 
+    private float Deceleration_Speed = 2.5f;
+
+    [SerializeField] 
+    private float Steer_Angle = 5f;
+
+    [SerializeField] 
+    private float Steer_Speed = 0.015f;
+
+    private float Current_Speed = 0f;
 
     private void Awake()
     {
-        Car_Controls = new Car_Control_Actions();
+        Car_Input_Controls = new Car_Control_Actions();
         Rigid_Body = GetComponent<Rigidbody>();
     }
 
     private void OnEnable()
     {
-        Car_Controls.Enable();
+        Car_Input_Controls.Enable();
     }
 
     private void OnDisable()
     {
-        Car_Controls.Disable();
+        Car_Input_Controls.Disable();
     }
 
     void Update()
@@ -49,53 +52,39 @@ public class Car_Behaviour : MonoBehaviour
 
     public void Movement()
     {
-        // Moving the Car Object.
-        Vector3 Move_Input = Car_Controls.Gameplay.Movement.ReadValue<Vector3>();
+        Vector2 Move_Input = Car_Input_Controls.Gameplay.Movement.ReadValue<Vector2>();
+        float Accelerate_Input = Move_Input.y;
 
-        // Accelerate
-        if (Move_Input.y > 0)
+        if (Accelerate_Input > 0)
         {
-            currentSpeed += Acceleration * Time.deltaTime;
-            currentSpeed = Mathf.Min(currentSpeed, Move_Max_Speed);
+            Current_Speed = Mathf.MoveTowards(Current_Speed, Max_Speed, Acceleration_Speed * Time.deltaTime);
         }
-        // Decelerate or reverse
-        else if (Move_Input.y < 0)
+
+        else if (Accelerate_Input < 0)
         {
-            if (currentSpeed > 0)
-            {
-                currentSpeed -= Deceleration * Time.deltaTime;
-            }
-            else
-            {
-                currentSpeed += Deceleration * Time.deltaTime;
-            }
-            currentSpeed = Mathf.Max(currentSpeed, -Move_Max_Speed);
+            Current_Speed = Mathf.MoveTowards(Current_Speed, -Max_Speed, Deceleration_Speed * Time.deltaTime);
         }
+
         else
         {
-            // No input, decelerate to stop
-            if (currentSpeed > 0)
-            {
-                currentSpeed -= Deceleration * Time.deltaTime;
-                currentSpeed = Mathf.Max(currentSpeed, 0f);
-            }
-            else if (currentSpeed < 0)
-            {
-                currentSpeed += Deceleration * Time.deltaTime;
-                currentSpeed = Mathf.Min(currentSpeed, 0f);
-            }
+            Current_Speed = Mathf.MoveTowards(Current_Speed, 0f, Deceleration_Speed * Time.deltaTime);
         }
 
-        // Apply movement using Rigidbody
-        Vector3 Move_Force = transform.forward * currentSpeed * Time.deltaTime;
+        Vector3 Move_Force = transform.forward * Current_Speed;
         Rigid_Body.AddForce(Move_Force);
 
-        // Steering
-        float Steer_Input = Move_Input.x * Steer_Angle;
-        Rigid_Body.AddTorque(Vector3.up * Steer_Input * Time.deltaTime);
+        float Steer_Input = Move_Input.x * Steer_Speed;
+        float Turn_Amount = Steer_Input * Steer_Angle;
 
-        // Traction
-        Move_Force *= Traction * Time.deltaTime;
+        Quaternion Turn_Rotation = Quaternion.Euler(0f, Turn_Amount, 0f);
+        Rigid_Body.MoveRotation(Rigid_Body.rotation * Turn_Rotation);
+
         Rigid_Body.AddForce(Move_Force);
+    }
+
+    public void Camera_Switch()
+    {
+        float Move_Input = Car_Input_Controls.Gameplay.Movement.ReadValue<float>();
+        //if ()
     }
 }

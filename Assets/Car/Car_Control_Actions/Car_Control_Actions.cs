@@ -44,6 +44,15 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Camera_Switch"",
+                    ""type"": ""Button"",
+                    ""id"": ""dcd952cf-501c-46eb-b30b-69f356f81b7a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -103,6 +112,61 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""Move - Controller"",
+                    ""id"": ""c61f2382-232b-45e7-a8bc-04259fee7640"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""b443a729-8023-4d68-a25d-497648c125fe"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""a2c9556a-6c0e-4956-b757-74ab74a86cfc"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""0b8f43d8-1783-4f8b-9149-ee3dc613869c"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""921bb0b5-466c-4608-92f6-97f9b97930e2"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""1a7d564b-99a9-4f06-89c3-490455fb6a78"",
                     ""path"": ""<Keyboard>/space"",
@@ -110,6 +174,39 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Brake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9c288e68-c97e-466c-8bf8-cfe685d6a412"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Brake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2a8a2ff4-ea63-418a-b117-9e273cc879e1"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera_Switch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""286d64ce-ae50-42c1-a7c6-74c5f9ac3247"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera_Switch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -122,6 +219,7 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
         m_Gameplay_Brake = m_Gameplay.FindAction("Brake", throwIfNotFound: true);
+        m_Gameplay_Camera_Switch = m_Gameplay.FindAction("Camera_Switch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -185,12 +283,14 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_Movement;
     private readonly InputAction m_Gameplay_Brake;
+    private readonly InputAction m_Gameplay_Camera_Switch;
     public struct GameplayActions
     {
         private @Car_Control_Actions m_Wrapper;
         public GameplayActions(@Car_Control_Actions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
         public InputAction @Brake => m_Wrapper.m_Gameplay_Brake;
+        public InputAction @Camera_Switch => m_Wrapper.m_Gameplay_Camera_Switch;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -206,6 +306,9 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
             @Brake.started += instance.OnBrake;
             @Brake.performed += instance.OnBrake;
             @Brake.canceled += instance.OnBrake;
+            @Camera_Switch.started += instance.OnCamera_Switch;
+            @Camera_Switch.performed += instance.OnCamera_Switch;
+            @Camera_Switch.canceled += instance.OnCamera_Switch;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -216,6 +319,9 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
             @Brake.started -= instance.OnBrake;
             @Brake.performed -= instance.OnBrake;
             @Brake.canceled -= instance.OnBrake;
+            @Camera_Switch.started -= instance.OnCamera_Switch;
+            @Camera_Switch.performed -= instance.OnCamera_Switch;
+            @Camera_Switch.canceled -= instance.OnCamera_Switch;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -237,5 +343,6 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnBrake(InputAction.CallbackContext context);
+        void OnCamera_Switch(InputAction.CallbackContext context);
     }
 }
