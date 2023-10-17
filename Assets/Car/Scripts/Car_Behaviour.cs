@@ -35,6 +35,12 @@ public class Car_Behaviour : MonoBehaviour
         Rigid_Body = GetComponent<Rigidbody>();
     }
 
+    private void Start()
+    {
+        First_Person_Camera.SetActive(true);
+        Third_Person_Camera.SetActive(false);
+    }
+
     private void OnEnable()
     {
         Car_Input_Controls.Enable();
@@ -84,7 +90,23 @@ public class Car_Behaviour : MonoBehaviour
 
     public void Camera_Switch()
     {
-        float Move_Input = Car_Input_Controls.Gameplay.Movement.ReadValue<float>();
-        //if ()
+        if (Car_Input_Controls.Gameplay.Camera_Switch.triggered)
+        {
+            Debug.Log("BUTTON PRESSED");
+            if (First_Person_Camera.activeSelf)
+            {
+                Debug.Log("FIRST PERSON ACTIVE");
+                First_Person_Camera.SetActive(false);
+                Third_Person_Camera.SetActive(true);
+
+            }
+
+            else if (Third_Person_Camera.activeSelf)
+            {
+                Debug.Log("THIRD PERSON ACTIVE");
+                Third_Person_Camera.SetActive(false);
+                First_Person_Camera.SetActive(true);
+            }
+        }
     }
 }
