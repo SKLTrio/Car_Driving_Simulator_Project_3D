@@ -9,7 +9,7 @@
                     "name": "Movement",
                     "type": "Value",
                     "id": "469bb56c-8645-446e-b986-83a30dc1c2c0",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Analog",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -18,15 +18,6 @@
                     "name": "Brake",
                     "type": "Button",
                     "id": "c721e893-83e4-4dec-a216-c586ebf8cd90",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Camera_Switch",
-                    "type": "Button",
-                    "id": "dcd952cf-501c-46eb-b30b-69f356f81b7a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -163,28 +154,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Brake",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2a8a2ff4-ea63-418a-b117-9e273cc879e1",
-                    "path": "<Keyboard>/tab",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Camera_Switch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "286d64ce-ae50-42c1-a7c6-74c5f9ac3247",
-                    "path": "<Gamepad>/leftShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Camera_Switch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

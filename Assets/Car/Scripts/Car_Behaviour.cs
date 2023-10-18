@@ -7,25 +7,25 @@ public class Car_Behaviour : MonoBehaviour
     private Car_Control_Actions Car_Input_Controls;
 
     [SerializeField]
-    private GameObject First_Person_Camera;
-
-    [SerializeField]
-    private GameObject Third_Person_Camera;
-
-    [SerializeField]
-    private float Max_Speed = 5f;
+    private float Max_Speed = 10f;
 
     [SerializeField] 
     private float Acceleration_Speed = 1f;
 
     [SerializeField] 
-    private float Deceleration_Speed = 2.5f;
+    private float Deceleration_Speed = 1f;
+
+    [SerializeField]
+    private float Deceleration_Speed_Over_Time = 0.25f;
+
+    [SerializeField]
+    private float Brake_Speed = 2f;
 
     [SerializeField] 
-    private float Steer_Angle = 5f;
+    private float Steer_Angle = 10f;
 
     [SerializeField] 
-    private float Steer_Speed = 0.015f;
+    private float Steer_Speed = 0.02f;
 
     private float Current_Speed = 0f;
 
@@ -35,20 +35,14 @@ public class Car_Behaviour : MonoBehaviour
         Rigid_Body = GetComponent<Rigidbody>();
     }
 
-    private void Start()
-    {
-        First_Person_Camera.SetActive(true);
-        Third_Person_Camera.SetActive(false);
-    }
-
     private void OnEnable()
     {
-        Car_Input_Controls.Enable();
+        Car_Input_Controls.Gameplay.Enable();
     }
 
     private void OnDisable()
     {
-        Car_Input_Controls.Disable();
+        Car_Input_Controls.Gameplay.Disable();
     }
 
     void Update()
@@ -73,7 +67,7 @@ public class Car_Behaviour : MonoBehaviour
 
         else
         {
-            Current_Speed = Mathf.MoveTowards(Current_Speed, 0f, Deceleration_Speed * Time.deltaTime);
+            Current_Speed = Mathf.MoveTowards(Current_Speed, 0f, Deceleration_Speed_Over_Time * Time.deltaTime);
         }
 
         Vector3 Move_Force = transform.forward * Current_Speed;
@@ -88,25 +82,8 @@ public class Car_Behaviour : MonoBehaviour
         Rigid_Body.AddForce(Move_Force);
     }
 
-    public void Camera_Switch()
+    public void Brake()
     {
-        if (Car_Input_Controls.Gameplay.Camera_Switch.triggered)
-        {
-            Debug.Log("BUTTON PRESSED");
-            if (First_Person_Camera.activeSelf)
-            {
-                Debug.Log("FIRST PERSON ACTIVE");
-                First_Person_Camera.SetActive(false);
-                Third_Person_Camera.SetActive(true);
-
-            }
-
-            else if (Third_Person_Camera.activeSelf)
-            {
-                Debug.Log("THIRD PERSON ACTIVE");
-                Third_Person_Camera.SetActive(false);
-                First_Person_Camera.SetActive(true);
-            }
-        }
+        Current_Speed = 0.75f;
     }
 }
