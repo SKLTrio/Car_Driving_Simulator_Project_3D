@@ -21,22 +21,14 @@ public class Car_Behaviour : MonoBehaviour
     [SerializeField] 
     private float Steer_Angle = 10f;
 
-    [SerializeField] 
+    [SerializeField]
     private float Steer_Speed = 0.02f;
-
-    [SerializeField]
-    private float Y_Rotation_Min_Clamp;
-
-    [SerializeField]
-    private float Y_Rotation_Max_Clamp;
 
     private float Current_Speed = 0f;
 
     public bool Is_Grounded;
 
     public GameObject Car;
-
-    //private float Rotation_X = 0;
 
     private void Awake()
     {
@@ -108,14 +100,14 @@ public class Car_Behaviour : MonoBehaviour
 
         if (Is_Grounded && Car.transform.rotation.eulerAngles.x == 80f)
         {
-            Debug.Log("ROTATED");
+            Debug.Log("ROTATED 1");
             Vector3 New_Rotation = new Vector3(0, Y_Rotation_Position, 0);
             Car.transform.eulerAngles = New_Rotation;
             Current_Speed = 0f;
         }
 
-        else if (!Is_Grounded && Car.transform.rotation.eulerAngles.x > -100f && Car.transform.rotation.eulerAngles.x <= 120f) {
-            Debug.Log("ROTATED");
+        else if (!Is_Grounded && Car.transform.rotation.eulerAngles.x < -100f && Car.transform.rotation.eulerAngles.x >= 120f) {
+            Debug.Log("ROTATED 2");
             Vector3 New_Rotation = new Vector3(0, Y_Rotation_Position, 0);
             Car.transform.eulerAngles = New_Rotation;
             Current_Speed = 0f;
@@ -123,10 +115,10 @@ public class Car_Behaviour : MonoBehaviour
 
         else if (!Is_Grounded && Car.transform.rotation.eulerAngles.z > -100f && Car.transform.rotation.eulerAngles.z >= 80f)
         {
-            Debug.Log("ROTATED");
+            Debug.Log("ROTATED 3");
             Vector3 New_Rotation = new Vector3(0, Y_Rotation_Position, 0);
             Car.transform.eulerAngles = New_Rotation;
-            Current_Speed = 0f;
+            //Current_Speed = 0f;
         }
 
     }
