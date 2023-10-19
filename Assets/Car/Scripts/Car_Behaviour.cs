@@ -18,16 +18,25 @@ public class Car_Behaviour : MonoBehaviour
     [SerializeField]
     private float Deceleration_Speed_Over_Time = 0.25f;
 
-    [SerializeField]
-    private float Brake_Speed = 2f;
-
     [SerializeField] 
     private float Steer_Angle = 10f;
 
     [SerializeField] 
     private float Steer_Speed = 0.02f;
 
+    [SerializeField]
+    private float Y_Rotation_Min_Clamp;
+
+    [SerializeField]
+    private float Y_Rotation_Max_Clamp;
+
     private float Current_Speed = 0f;
+
+    public bool Is_Grounded;
+
+    public GameObject Car;
+
+    //private float Rotation_X = 0;
 
     private void Awake()
     {
@@ -55,20 +64,24 @@ public class Car_Behaviour : MonoBehaviour
         Vector2 Move_Input = Car_Input_Controls.Gameplay.Movement.ReadValue<Vector2>();
         float Accelerate_Input = Move_Input.y;
 
-        if (Accelerate_Input > 0)
+        if (Is_Grounded)
         {
-            Current_Speed = Mathf.MoveTowards(Current_Speed, Max_Speed, Acceleration_Speed * Time.deltaTime);
+            if (Accelerate_Input > 0)
+            {
+                Current_Speed = Mathf.MoveTowards(Current_Speed, Max_Speed, Acceleration_Speed * Time.deltaTime);
+            }
+
+            else if (Accelerate_Input < 0)
+            {
+                Current_Speed = Mathf.MoveTowards(Current_Speed, -Max_Speed, Deceleration_Speed * Time.deltaTime);
+            }
+
+            else
+            {
+                Current_Speed = Mathf.MoveTowards(Current_Speed, 0f, Deceleration_Speed_Over_Time * Time.deltaTime);
+            }
         }
 
-        else if (Accelerate_Input < 0)
-        {
-            Current_Speed = Mathf.MoveTowards(Current_Speed, -Max_Speed, Deceleration_Speed * Time.deltaTime);
-        }
-
-        else
-        {
-            Current_Speed = Mathf.MoveTowards(Current_Speed, 0f, Deceleration_Speed_Over_Time * Time.deltaTime);
-        }
 
         Vector3 Move_Force = transform.forward * Current_Speed;
         Rigid_Body.AddForce(Move_Force);
@@ -76,14 +89,67 @@ public class Car_Behaviour : MonoBehaviour
         float Steer_Input = Move_Input.x * Steer_Speed;
         float Turn_Amount = Steer_Input * Steer_Angle;
 
+        if (Turn_Amount > 0 || Turn_Amount < 0 && Is_Grounded)
+        {
+            Rigid_Body.drag = 4.5f;
+        }
+
+        else
+        {
+            Rigid_Body.drag = 3f;
+        }
+
         Quaternion Turn_Rotation = Quaternion.Euler(0f, Turn_Amount, 0f);
         Rigid_Body.MoveRotation(Rigid_Body.rotation * Turn_Rotation);
 
         Rigid_Body.AddForce(Move_Force);
+
+        float Y_Rotation_Position = Car.transform.rotation.eulerAngles.y;
+
+        if (Is_Grounded && Car.transform.rotation.eulerAngles.x == 80f)
+        {
+            Debug.Log("ROTATED");
+            Vector3 New_Rotation = new Vector3(0, Y_Rotation_Position, 0);
+            Car.transform.eulerAngles = New_Rotation;
+            Current_Speed = 0f;
+        }
+
+        else if (!Is_Grounded && Car.transform.rotation.eulerAngles.x > -100f && Car.transform.rotation.eulerAngles.x <= 120f) {
+            Debug.Log("ROTATED");
+            Vector3 New_Rotation = new Vector3(0, Y_Rotation_Position, 0);
+            Car.transform.eulerAngles = New_Rotation;
+            Current_Speed = 0f;
+        }
+
+        else if (!Is_Grounded && Car.transform.rotation.eulerAngles.z > -100f && Car.transform.rotation.eulerAngles.z >= 80f)
+        {
+            Debug.Log("ROTATED");
+            Vector3 New_Rotation = new Vector3(0, Y_Rotation_Position, 0);
+            Car.transform.eulerAngles = New_Rotation;
+            Current_Speed = 0f;
+        }
+
     }
 
     public void Brake()
     {
         Current_Speed = 0.75f;
+    }
+
+    private void OnCollisionEnter(Collision Collider)
+    {
+        if (Collider.gameObject.CompareTag("Ground"))
+        {
+            Debug.Log("IS GROUNDED");
+            Is_Grounded = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision Collider)
+    {
+        if (Collider.gameObject.CompareTag("Ground"))
+        {
+            Is_Grounded = false;
+        }
     }
 }

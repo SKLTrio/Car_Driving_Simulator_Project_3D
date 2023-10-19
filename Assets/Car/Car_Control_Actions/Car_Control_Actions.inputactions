@@ -136,6 +136,61 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "Move - Joystick_Wheel",
+                    "id": "fe7db266-892f-4a3c-b891-619f870a86ab",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "d0db4cb0-599d-4c52-a594-c4044558250c",
+                    "path": "<Joystick>/rz",
+                    "interactions": "",
+                    "processors": "Invert,Normalize(min=-1,max=1,zero=-1)",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "28246f2a-bb3d-4fdd-bd8c-84ca4536cfc9",
+                    "path": "<Joystick>/slider",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "f944cd19-3a3a-4387-8b8a-63cde37f2c31",
+                    "path": "<Joystick>/stick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "a6f0575e-028f-416b-820e-b2dcfc9229b2",
+                    "path": "<Joystick>/stick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "1a7d564b-99a9-4f06-89c3-490455fb6a78",
                     "path": "<Keyboard>/space",
@@ -152,6 +207,17 @@
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
+                    "groups": "",
+                    "action": "Brake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "543373e8-8012-4cb0-9133-2c765e6b02aa",
+                    "path": "<Joystick>/stick/y",
+                    "interactions": "",
+                    "processors": "Normalize(min=-1,max=1,zero=-1)",
                     "groups": "",
                     "action": "Brake",
                     "isComposite": false,
