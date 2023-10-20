@@ -56,24 +56,20 @@ public class Car_Behaviour_2 : MonoBehaviour
         Vector2 Move_Input = Car_Input_Controls.Gameplay.Movement.ReadValue<Vector2>();
         float Accelerate_Input = Move_Input.y;
 
-        if (Is_Grounded)
+        if (Accelerate_Input > 0)
         {
-            if (Accelerate_Input > 0)
-            {
-                Current_Speed = Mathf.MoveTowards(Current_Speed, Max_Speed, Acceleration_Speed * Time.deltaTime);
-            }
-
-            else if (Accelerate_Input < 0)
-            {
-                Current_Speed = Mathf.MoveTowards(Current_Speed, -Max_Speed, Deceleration_Speed * Time.deltaTime);
-            }
-
-            else
-            {
-                Current_Speed = Mathf.MoveTowards(Current_Speed, 0f, Deceleration_Speed_Over_Time * Time.deltaTime);
-            }
+            Current_Speed = Mathf.MoveTowards(Current_Speed, Max_Speed, Acceleration_Speed * Time.deltaTime);
         }
 
+        else if (Accelerate_Input < 0)
+        {
+            Current_Speed = Mathf.MoveTowards(Current_Speed, -Max_Speed, Deceleration_Speed * Time.deltaTime);
+        }
+
+        else
+        {
+            Current_Speed = Mathf.MoveTowards(Current_Speed, 0f, Deceleration_Speed_Over_Time * Time.deltaTime);
+        }
 
         Vector3 Move_Force = transform.forward * Current_Speed;
         Rigid_Body.AddForce(Move_Force);
@@ -101,22 +97,5 @@ public class Car_Behaviour_2 : MonoBehaviour
     public void Brake()
     {
         Current_Speed = 0.75f;
-    }
-
-    private void OnCollisionEnter(Collision Collider)
-    {
-        if (Collider.gameObject.CompareTag("Ground"))
-        {
-            Debug.Log("IS GROUNDED");
-            Is_Grounded = true;
-        }
-    }
-
-    private void OnCollisionExit(Collision Collider)
-    {
-        if (Collider.gameObject.CompareTag("Ground"))
-        {
-            Is_Grounded = false;
-        }
     }
 }
