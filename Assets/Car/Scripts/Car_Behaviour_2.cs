@@ -32,6 +32,7 @@ public class Car_Behaviour_2 : MonoBehaviour
 
     private void Awake()
     {
+        Gamemanager.ResetGame();
         Car_Input_Controls = new Car_Control_Actions();
         Rigid_Body = GetComponent<Rigidbody>();
     }
