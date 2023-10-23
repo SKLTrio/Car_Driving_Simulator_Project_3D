@@ -24,7 +24,7 @@ public class Car_Behaviour_2 : MonoBehaviour
     [SerializeField]
     private float Steer_Speed = 0.02f;
 
-    private float Current_Speed = 0f;
+    public float Current_Speed = 0f;
 
     public bool Is_Grounded;
 

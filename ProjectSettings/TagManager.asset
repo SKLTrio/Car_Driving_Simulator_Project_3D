@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Oil_Spill_Spawn_Point
+  - Car
   layers:
   - Default
   - TransparentFX
