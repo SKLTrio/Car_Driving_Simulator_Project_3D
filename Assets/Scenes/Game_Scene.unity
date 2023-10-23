@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -24260,7 +24260,7 @@ GameObject:
   - component: {fileID: 448703236}
   m_Layer: 0
   m_Name: Racing_Car_Model_#12
-  m_TagString: Car
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25388,7 +25388,7 @@ GameObject:
   - component: {fileID: 475834864}
   m_Layer: 0
   m_Name: Racing_Car_Model_#13
-  m_TagString: Car
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26956,7 +26956,7 @@ GameObject:
   - component: {fileID: 491183335}
   m_Layer: 0
   m_Name: Racing_Car_Model_#5
-  m_TagString: Car
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32362,7 +32362,7 @@ GameObject:
   - component: {fileID: 589948676}
   m_Layer: 0
   m_Name: Racing_Car_Model_#10
-  m_TagString: Car
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40365,7 +40365,7 @@ GameObject:
   - component: {fileID: 728457477}
   m_Layer: 0
   m_Name: Racing_Car_Model_#15
-  m_TagString: Car
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46654,7 +46654,7 @@ GameObject:
   - component: {fileID: 842078143}
   m_Layer: 0
   m_Name: Racing_Car_Model_#7
-  m_TagString: Car
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50351,7 +50351,7 @@ GameObject:
   - component: {fileID: 894074789}
   m_Layer: 0
   m_Name: Racing_Car_Model_#8
-  m_TagString: Car
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62271,7 +62271,7 @@ GameObject:
   - component: {fileID: 1092711355}
   m_Layer: 0
   m_Name: Racing_Car_Model_#3
-  m_TagString: Car
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79560,7 +79560,7 @@ GameObject:
   - component: {fileID: 1395016397}
   m_Layer: 0
   m_Name: Racing_Car_Model_#1
-  m_TagString: Car
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83003,8 +83003,8 @@ MonoBehaviour:
   Acceleration_Speed: 2.5
   Deceleration_Speed: 4.5
   Deceleration_Speed_Over_Time: 0.5
-  Steer_Angle: 10
-  Steer_Speed: 0.025
+  Steer_Angle: 15
+  Steer_Speed: 0.05
   Current_Speed: 0
   Is_Grounded: 0
   Car: {fileID: 1455658444}
@@ -86773,7 +86773,7 @@ GameObject:
   - component: {fileID: 1514348875}
   m_Layer: 0
   m_Name: Racing_Car_Model_#9
-  m_TagString: Car
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91503,7 +91503,7 @@ GameObject:
   - component: {fileID: 1590492951}
   m_Layer: 0
   m_Name: Racing_Car_Model_#6
-  m_TagString: Car
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94279,7 +94279,7 @@ GameObject:
   - component: {fileID: 1632429333}
   m_Layer: 0
   m_Name: Racing_Car_Model_#16
-  m_TagString: Car
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105288,7 +105288,7 @@ GameObject:
   - component: {fileID: 1781381672}
   m_Layer: 0
   m_Name: Racing_Car_Model_#11
-  m_TagString: Car
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118538,7 +118538,7 @@ GameObject:
   - component: {fileID: 2016149722}
   m_Layer: 0
   m_Name: Racing_Car_Model_#2
-  m_TagString: Car
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120574,7 +120574,7 @@ GameObject:
   - component: {fileID: 2049338735}
   m_Layer: 0
   m_Name: Racing_Car_Model_#14
-  m_TagString: Car
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122355,7 +122355,7 @@ GameObject:
   - component: {fileID: 2073499524}
   m_Layer: 0
   m_Name: Racing_Car_Model_#4
-  m_TagString: Car
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
