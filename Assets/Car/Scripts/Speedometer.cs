@@ -9,6 +9,7 @@ public class Speedometer : MonoBehaviour
     void Update()
     {
         float speed = carRigidbody.velocity.magnitude * 1f; 
-        speedText.text = " " + speed.ToString("F1") + " mph";
+        speedText.text = speed.ToString("F1");
+
     }
 }
