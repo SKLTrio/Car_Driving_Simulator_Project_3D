@@ -83482,6 +83482,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c721e893-83e4-4dec-a216-c586ebf8cd90
     m_ActionName: 'Gameplay/Brake[/Keyboard/space,/XInputControllerWindows/buttonSouth]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f44bb0db-3684-4d53-8e74-a1e84479f3b1
+    m_ActionName: UI/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
