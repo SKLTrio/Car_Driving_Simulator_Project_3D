@@ -10,6 +10,11 @@ public class Oil_Spill_Spawning : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Oil_Spill_Spawn();
+    }
+
+    public void Oil_Spill_Spawn()
+    {
         Transform Parent_Transform = transform;
 
         // Get all the spawn points in the scene.
