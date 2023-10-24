@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,11 +10,16 @@ public class UIManager : MonoBehaviour
     TextMeshProUGUI timeValue;
     [SerializeField]
     TextMeshProUGUI scoreValue;
-    
+    [SerializeField]
+    TextMeshProUGUI LapNumber;
+    [SerializeField]
+    public static int TotalLap;
+
     void Start()
     {
         UpdateTimeUI(0);
         UpdateScoreUI(0);
+        UpdateLapNumUI(0);
     }
 
     public void UpdateTimeUI(float time)
@@ -26,5 +32,13 @@ public class UIManager : MonoBehaviour
     {
         // "D5" - minimum of 5 digits, preceding shorter numbers with 0s
         scoreValue.text = value.ToString("D5");
-    }    
+    }
+    
+    public void UpdateLapNumUI(double lap)
+    {
+        int lapNum = (int)lap;
+        string Count = lapNum.ToString();        
+        LapNumber.text = Count + "/" + TotalLap;
+
+    }
 }
