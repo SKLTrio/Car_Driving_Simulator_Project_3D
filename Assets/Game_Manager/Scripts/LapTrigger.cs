@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class LapTrigger : MonoBehaviour
 {
+    [SerializeField]
+    public bool LapMid = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -12,15 +15,23 @@ public class LapTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.tag == "Car")
+        if (collider.tag == "Car" && LapMid == false)
+        {         
+                Lap();           
+        }
+        else if (collider.tag == "Car" && LapMid == true)
         {
-            Lap();
+            LapHalf();
         }
     }
 
     public void Lap()
     {        
         GameManager.LapCounter();        
+    }
+    public void LapHalf()
+    {
+        GameManager.LapMidway();
     }
 
 }
