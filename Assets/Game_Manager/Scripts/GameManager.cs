@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gamemanager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static Gamemanager Instance { get; private set; }
+    public static GameManager Instance { get; private set; }
     public UIManager UIManager { get; private set; }
 
     private static float secondsSinceStart = 0;
     private static int score;
+    private static double LapCount = 0;
+    private static string EndTime;
+    private static string Result;
+    public static bool LapMade;
 
     // Start is called before the first frame update
     void Awake()
@@ -52,5 +56,19 @@ public class Gamemanager : MonoBehaviour
         score = 0;
         Instance.UIManager.UpdateScoreUI(score);
         Debug.Log("Score: " + score);
+    }
+
+    public static void LapCounter()
+    {
+        if (LapMade == true)
+        {
+            LapCount += 1;
+            Instance.UIManager.UpdateLapNumUI(LapCount);
+        }
+    }
+
+    public static void LapMidway()
+    {
+        LapMade = true;
     }
 }
