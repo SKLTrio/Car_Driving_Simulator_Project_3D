@@ -252,9 +252,9 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
             ""id"": ""425e3465-c77a-40eb-8c92-0e3a32aa64e0"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
+                    ""name"": ""Pause_Button"",
                     ""type"": ""Button"",
-                    ""id"": ""f44bb0db-3684-4d53-8e74-a1e84479f3b1"",
+                    ""id"": ""253e3699-ed76-4aae-90ed-46fcc080fc3a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -264,12 +264,34 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""85a60eed-0e27-437e-9fa4-34a59dbcea74"",
-                    ""path"": """",
+                    ""id"": ""22a84b2f-1a86-495f-b517-d2d70b7ad5e0"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Pause_Button"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""17d53823-f552-45ec-be9f-90310ce815fa"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause_Button"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""38b970cd-871b-4a38-99c5-e0983b05ae77"",
+                    ""path"": ""<Joystick>/button3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause_Button"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -284,7 +306,7 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
         m_Gameplay_Brake = m_Gameplay.FindAction("Brake", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-        m_UI_Newaction = m_UI.FindAction("New action", throwIfNotFound: true);
+        m_UI_Pause_Button = m_UI.FindAction("Pause_Button", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -400,12 +422,12 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
     // UI
     private readonly InputActionMap m_UI;
     private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
-    private readonly InputAction m_UI_Newaction;
+    private readonly InputAction m_UI_Pause_Button;
     public struct UIActions
     {
         private @Car_Control_Actions m_Wrapper;
         public UIActions(@Car_Control_Actions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_UI_Newaction;
+        public InputAction @Pause_Button => m_Wrapper.m_UI_Pause_Button;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -415,16 +437,16 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
-            @Newaction.started += instance.OnNewaction;
-            @Newaction.performed += instance.OnNewaction;
-            @Newaction.canceled += instance.OnNewaction;
+            @Pause_Button.started += instance.OnPause_Button;
+            @Pause_Button.performed += instance.OnPause_Button;
+            @Pause_Button.canceled += instance.OnPause_Button;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
         {
-            @Newaction.started -= instance.OnNewaction;
-            @Newaction.performed -= instance.OnNewaction;
-            @Newaction.canceled -= instance.OnNewaction;
+            @Pause_Button.started -= instance.OnPause_Button;
+            @Pause_Button.performed -= instance.OnPause_Button;
+            @Pause_Button.canceled -= instance.OnPause_Button;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -449,6 +471,6 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
     }
     public interface IUIActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnPause_Button(InputAction.CallbackContext context);
     }
 }

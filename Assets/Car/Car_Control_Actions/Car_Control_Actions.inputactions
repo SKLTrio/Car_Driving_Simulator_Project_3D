@@ -230,9 +230,9 @@
             "id": "425e3465-c77a-40eb-8c92-0e3a32aa64e0",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Pause_Button",
                     "type": "Button",
-                    "id": "f44bb0db-3684-4d53-8e74-a1e84479f3b1",
+                    "id": "253e3699-ed76-4aae-90ed-46fcc080fc3a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -242,12 +242,34 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "85a60eed-0e27-437e-9fa4-34a59dbcea74",
-                    "path": "",
+                    "id": "22a84b2f-1a86-495f-b517-d2d70b7ad5e0",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Pause_Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "17d53823-f552-45ec-be9f-90310ce815fa",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause_Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "38b970cd-871b-4a38-99c5-e0983b05ae77",
+                    "path": "<Joystick>/button3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause_Button",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

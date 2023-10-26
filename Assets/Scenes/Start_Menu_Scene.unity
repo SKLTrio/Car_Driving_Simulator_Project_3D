@@ -1709,12 +1709,7 @@ MonoBehaviour:
   Victory_Panel: {fileID: 0}
   Is_Pause_Menu_Available: 0
   Car_Colour_Changer_Script: {fileID: 0}
-  Car_Colour_Picker_Script: {fileID: 0}
   Car_Colour_Button: {fileID: 2093462241}
-  Red_Slider: {fileID: 58710169}
-  Green_Slider: {fileID: 2046272480}
-  Blue_Slider: {fileID: 1719099524}
-  Colour_Image: {fileID: 966061220}
 --- !u!1 &345210544
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,13 +12,14 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI LapNumber;
     [SerializeField]
-    public static int TotalLap;
+
+    public Menu_Controller Menu_Controller_Script;
 
     void Start()
     {
         UpdateTimeUI(0);
         UpdateScoreUI(0);
-        UpdateLapNumUI(0);
+        UpdateLapNumUI(0, 1);
     }
 
     public void UpdateTimeUI(float time)
@@ -33,11 +34,18 @@ public class UIManager : MonoBehaviour
         scoreValue.text = value.ToString("D5");
     }
 
-    public void UpdateLapNumUI(double lap)
+    public void UpdateLapNumUI(int lap, int TotalLap)
     {
-        int lapNum = (int)lap;
-        string Count = lapNum.ToString();
+        string Count = lap.ToString();
         LapNumber.text = Count + "/" + TotalLap;
+
+        Debug.Log(lap);
+
+        if (lap == TotalLap)
+        {
+            GameManager.Final_Results();
+            Menu_Controller_Script.Victory_Scene_Load();
+        }
 
     }
 }

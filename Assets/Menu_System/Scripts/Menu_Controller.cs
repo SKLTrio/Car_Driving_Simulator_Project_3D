@@ -24,7 +24,7 @@ public class Menu_Controller : MonoBehaviour
     public GameObject Pause_Panel;
 
     [SerializeField]
-    public GameObject Victory_Panel;
+    public string Victory_Scene;
 
     [SerializeField]
     bool Is_Pause_Menu_Available = false;
@@ -89,6 +89,7 @@ public class Menu_Controller : MonoBehaviour
     {
         Cursor.visible = false;
         SceneManager.LoadScene(Game_Scene);
+        Time.timeScale = 1f;
 
     }
 
@@ -144,10 +145,8 @@ public class Menu_Controller : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    public void Congrats_Panel_Load()
+    public void Victory_Scene_Load()
     {
-        Pause();
-        Victory_Panel.SetActive(true);
+        SceneManager.LoadScene(Victory_Scene);
     }
-
 }
