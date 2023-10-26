@@ -65247,7 +65247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedText: {fileID: 599940854}
-  carRigidbody: {fileID: 1455658447}
+  carRigidbody: {fileID: 1455658454}
   Speedometer_Image: {fileID: 1431363620}
   Speedometer_Green: {fileID: -1909844154, guid: c76f1e9a1bef2524c897b83e801fdd8f, type: 3}
   Speedometer_Yellow: {fileID: -1382930307, guid: c76f1e9a1bef2524c897b83e801fdd8f, type: 3}
@@ -92919,10 +92919,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1455658448}
   - component: {fileID: 1455658446}
-  - component: {fileID: 1455658447}
+  - component: {fileID: 1455658452}
   - component: {fileID: 1455658450}
-  - component: {fileID: 1455658449}
+  - component: {fileID: 1455658453}
   - component: {fileID: 1455658451}
+  - component: {fileID: 1455658454}
   m_Layer: 0
   m_Name: Racing_Car
   m_TagString: Car
@@ -92943,7 +92944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: d5a680da35219e6498fe933e148fd093, type: 3}
-  m_NotificationBehavior: 2
+  m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -92956,73 +92957,26 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1455658449}
-        m_TargetAssemblyTypeName: Car_Behaviour_2, Assembly-CSharp
-        m_MethodName: Movement
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 469bb56c-8645-446e-b986-83a30dc1c2c0
-    m_ActionName: 'Gameplay/New action[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1455658449}
-        m_TargetAssemblyTypeName: Car_Behaviour_2, Assembly-CSharp
-        m_MethodName: Brake
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: c721e893-83e4-4dec-a216-c586ebf8cd90
-    m_ActionName: 'Gameplay/Brake[/Keyboard/space,/XInputControllerWindows/buttonSouth]'
-  - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 253e3699-ed76-4aae-90ed-46fcc080fc3a
     m_ActionName: 'UI/Pause_Button[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 26483584-f22c-44a5-be53-028f9dacf24a
+    m_ActionName: 'Gameplay/Accelerate[/Keyboard/w,/44F B684/rz]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ab580cbf-1b0e-466b-9233-5594c6252e9d
+    m_ActionName: 'Gameplay/Brake[/Keyboard/s,/44F B684/stick/y]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 00f445e6-fd8e-4ae8-b100-d68bbe92029d
+    m_ActionName: 'Gameplay/Turn[/44F B684/stick,/Keyboard/a,/Keyboard/d]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!54 &1455658447
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1455658444}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 3
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 116
-  m_CollisionDetection: 1
 --- !u!4 &1455658448
 Transform:
   m_ObjectHideFlags: 0
@@ -93041,27 +92995,6 @@ Transform:
   - {fileID: 1412478343}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1455658449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1455658444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea5c009dae3398458e68170d70e5972, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Max_Speed: 30
-  Acceleration_Speed: 2.5
-  Deceleration_Speed: 4.5
-  Deceleration_Speed_Over_Time: 0.5
-  Steer_Angle: 8
-  Steer_Speed: 0.025
-  Current_Speed: 0
-  Is_Grounded: 0
-  Car: {fileID: 1455658444}
 --- !u!65 &1455658450
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -93097,6 +93030,77 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thirdPersonCamera: {fileID: 1621149589}
   firstPersonCamera: {fileID: 1412478345}
+--- !u!143 &1455658452
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455658444}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1455658453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455658444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b6d7874e6fea745ab110a853042329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraContainer: {fileID: 1621149587}
+  maxSpeed: 30
+  mouseSensitivity: 0.2
+  gravity: 20
+  lookUpClamp: 0
+  lookDownClamp: 0
+--- !u!54 &1455658454
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455658444}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 3
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1455912137
 GameObject:
   m_ObjectHideFlags: 0

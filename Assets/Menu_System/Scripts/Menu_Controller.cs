@@ -148,5 +148,6 @@ public class Menu_Controller : MonoBehaviour
     public void Victory_Scene_Load()
     {
         SceneManager.LoadScene(Victory_Scene);
+        Cursor.visible = true;
     }
 }
