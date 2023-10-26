@@ -6,11 +6,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+
+    public static Input_Manager InputManager { get; private set; }
+
     public UIManager UIManager { get; private set; }
 
     public Menu_Controller MenuController;
-
-    public static Input_Manager Input_Manager_Script;
 
     private static float secondsSinceStart = 0;
     private static int score;
@@ -33,7 +34,7 @@ public class GameManager : MonoBehaviour
         
         UIManager = GetComponent<UIManager>();
         MenuController = GetComponent<Menu_Controller>();
-        Input_Manager_Script = this.GetOrAddComponent<Input_Manager>();
+        InputManager = this.GetOrAddComponent<Input_Manager>();
     }
 
     // Update is called once per frame

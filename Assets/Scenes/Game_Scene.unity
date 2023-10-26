@@ -75013,9 +75013,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1169114574}
   - component: {fileID: 1169114576}
+  - component: {fileID: 1169114577}
   - component: {fileID: 1169114572}
   - component: {fileID: 1169114575}
-  - component: {fileID: 1169114577}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -92934,8 +92934,8 @@ GameObject:
   - component: {fileID: 1455658446}
   - component: {fileID: 1455658454}
   - component: {fileID: 1455658450}
-  - component: {fileID: 1455658455}
   - component: {fileID: 1455658451}
+  - component: {fileID: 1455658455}
   m_Layer: 0
   m_Name: Racing_Car
   m_TagString: Car
@@ -92956,7 +92956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: d5a680da35219e6498fe933e148fd093, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -92973,20 +92973,63 @@ MonoBehaviour:
     m_ActionId: 253e3699-ed76-4aae-90ed-46fcc080fc3a
     m_ActionName: 'UI/Pause_Button[/Keyboard/escape]'
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 26483584-f22c-44a5-be53-028f9dacf24a
-    m_ActionName: 'Gameplay/Accelerate[/Keyboard/w,/44F B684/rz]'
-  - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1455658455}
+        m_TargetAssemblyTypeName: Car_Behaviour_2, Assembly-CSharp
+        m_MethodName: Brake
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: ab580cbf-1b0e-466b-9233-5594c6252e9d
     m_ActionName: 'Gameplay/Brake[/Keyboard/s,/44F B684/stick/y]'
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 00f445e6-fd8e-4ae8-b100-d68bbe92029d
-    m_ActionName: 'Gameplay/Turn[/44F B684/stick,/Keyboard/a,/Keyboard/d]'
+    m_ActionId: 6fcb7505-088c-4ae7-8a3b-c93557534626
+    m_ActionName: 'Gameplay/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Logitech
+      G29 Driving Force Racing Wheel/rz,/Logitech G29 Driving Force Racing Wheel/z]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DriveLocomotion, Assembly-CSharp
+        m_MethodName: Locomotion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9a1e4a2b-81ca-460d-985e-b585c6d695fd
+    m_ActionName: 'Drive/Accelerate[/Keyboard/w,/Logitech G29 Driving Force Racing
+      Wheel/rz]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ca60727a-501a-4fd1-883f-c5c893746749
+    m_ActionName: 'Drive/Brake[/Keyboard/space,/Logitech G29 Driving Force Racing
+      Wheel/stick/y]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 34aa9ba9-8c0b-48d8-9682-f72eb5d28d34
+    m_ActionName: 'Drive/Turn[/Logitech G29 Driving Force Racing Wheel/stick,/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3c8d5b21-e400-4715-ab50-fd1d9389b913
+    m_ActionName: 'Gameplay/Steer[/Logitech G29 Driving Force Racing Wheel/stick]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 371faaed-2ef8-459d-a5b5-db7f18344e4f
+    m_ActionName: Gameplay/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Gameplay
+  m_DefaultActionMap: Drive
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!4 &1455658448
@@ -93067,7 +93110,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &1455658455
 MonoBehaviour:
@@ -93078,18 +93121,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1455658444}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ecb5c8c6c262114b88cf12eb45029b4, type: 3}
+  m_Script: {fileID: 11500000, guid: dea5c009dae3398458e68170d70e5972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Max_Speed: 30
-  Acceleration_Speed: 2.5
-  Deceleration_Speed: 4.5
+  Max_Speed: 10
+  Acceleration_Speed: 1
+  Deceleration_Speed: 1
   Deceleration_Speed_Over_Time: 0.25
-  Steer_Angle: 10
+  Steer_Angle: 12
   Steer_Speed: 0.025
   Current_Speed: 0
   Is_Grounded: 0
-  Car: {fileID: 0}
+  Car: {fileID: 1455658444}
 --- !u!1 &1455912137
 GameObject:
   m_ObjectHideFlags: 0

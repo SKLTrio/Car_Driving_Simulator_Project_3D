@@ -8,13 +8,13 @@ public class Car_Behaviour_2 : MonoBehaviour
     private Car_Control_Actions Car_Input_Controls;
 
     [SerializeField]
-    private float Max_Speed = 10f;
+    private float Max_Speed = 30f;
 
     [SerializeField] 
-    private float Acceleration_Speed = 1f;
+    private float Acceleration_Speed = 2.5f;
 
     [SerializeField] 
-    private float Deceleration_Speed = 1f;
+    private float Deceleration_Speed = 4.5f;
 
     [SerializeField]
     private float Deceleration_Speed_Over_Time = 0.25f;
@@ -23,7 +23,7 @@ public class Car_Behaviour_2 : MonoBehaviour
     private float Steer_Angle = 10f;
 
     [SerializeField]
-    private float Steer_Speed = 0.02f;
+    private float Steer_Speed = 0.025f;
 
     public float Current_Speed = 0f;
 
@@ -54,7 +54,7 @@ public class Car_Behaviour_2 : MonoBehaviour
 
     public void Movement()
     {
-        Vector2 Move_Input = Car_Input_Controls.Gameplay.Accelerate.ReadValue<Vector2>();
+        Vector2 Move_Input = Car_Input_Controls.Gameplay.Movement.ReadValue<Vector2>();
         float Accelerate_Input = Move_Input.y;
 
         if (Accelerate_Input > 0)
@@ -97,10 +97,7 @@ public class Car_Behaviour_2 : MonoBehaviour
 
     public void Brake()
     {
+        Debug.Log("Brake Pressed");
         Current_Speed = 0.75f;
     }
-
-
-    // Seperate turning and acceleration for joystick
-
 }

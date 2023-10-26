@@ -28,19 +28,10 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
             ""id"": ""f954c9a7-481b-4c5f-b7e8-bcd5efc5140e"",
             ""actions"": [
                 {
-                    ""name"": ""Accelerate"",
+                    ""name"": ""Movement"",
                     ""type"": ""Value"",
-                    ""id"": ""26483584-f22c-44a5-be53-028f9dacf24a"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Decelerate"",
-                    ""type"": ""Value"",
-                    ""id"": ""177bd3c3-b6a7-45f8-8d91-00308b2f5163"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""id"": ""6fcb7505-088c-4ae7-8a3b-c93557534626"",
+                    ""expectedControlType"": ""Analog"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -49,16 +40,7 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Brake"",
                     ""type"": ""Value"",
                     ""id"": ""ab580cbf-1b0e-466b-9233-5594c6252e9d"",
-                    ""expectedControlType"": ""Analog"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Turn"",
-                    ""type"": ""Value"",
-                    ""id"": ""00f445e6-fd8e-4ae8-b100-d68bbe92029d"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -66,125 +48,59 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""5d7e4136-73aa-473e-b7c3-f2301bab1f73"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Accelerate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c8ceef39-bada-4689-b94c-eeca432ef4b2"",
-                    ""path"": ""<Joystick>/rz"",
-                    ""interactions"": """",
-                    ""processors"": ""Invert,Normalize(min=-1,max=1,zero=-1)"",
-                    ""groups"": """",
-                    ""action"": ""Accelerate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""eff4bd29-c05b-44d8-8638-3f94b068192b"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Brake"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f0f8b2c7-9079-41ee-a0d3-d0ef4749f2a7"",
-                    ""path"": ""<Joystick>/stick/y"",
-                    ""interactions"": """",
-                    ""processors"": ""Normalize(min=-1,max=1,zero=-1)"",
-                    ""groups"": """",
-                    ""action"": ""Brake"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""95b8f5b0-28de-4a27-9c9b-d987b998ca56"",
-                    ""path"": ""<Joystick>/stick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Turn"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""Keyboard"",
-                    ""id"": ""ac3b91a7-1f53-4303-88a1-571969459130"",
+                    ""id"": ""3638c81d-4d16-466c-ae16-c63cf5fc4e64"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Turn"",
+                    ""action"": ""Movement"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""3613cfc5-60e0-4aa5-8c9e-2c613f518de9"",
-                    ""path"": """",
+                    ""id"": ""932ceb29-8682-4278-80e4-9aaf28251e77"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Turn"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""3ca29653-f63e-4228-84eb-caa3971a7513"",
-                    ""path"": """",
+                    ""id"": ""55cdf3a0-9514-4d33-bc10-f80b373d6743"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Turn"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""b7026414-8280-491e-94b7-f230220a1306"",
+                    ""id"": ""729b82f3-8d5c-4fde-82d7-e1ad4854cb1b"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Turn"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""0973b7a4-5964-41a7-a0d6-98ec15cc628b"",
+                    ""id"": ""2a46e6f1-8148-4fb0-b025-b982dc1d90b0"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Turn"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8a72c573-0ab5-4ab4-9b0c-00fdf8fa98a6"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Decelerate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -237,19 +153,167 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Drive"",
+            ""id"": ""e0096796-d097-4da5-b44f-493bd8ba07a9"",
+            ""actions"": [
+                {
+                    ""name"": ""Accelerate"",
+                    ""type"": ""Value"",
+                    ""id"": ""9a1e4a2b-81ca-460d-985e-b585c6d695fd"",
+                    ""expectedControlType"": ""Analog"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Brake"",
+                    ""type"": ""Value"",
+                    ""id"": ""ca60727a-501a-4fd1-883f-c5c893746749"",
+                    ""expectedControlType"": ""Analog"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Turn"",
+                    ""type"": ""Value"",
+                    ""id"": ""34aa9ba9-8c0b-48d8-9682-f72eb5d28d34"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""e3bfbb82-f69f-4cc1-a47f-3e3472f210e2"",
+                    ""path"": ""<HID::Logitech G29 Driving Force Racing Wheel>/stick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Turn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""7ef0c803-b4d6-4e51-9f22-ecb85d564f57"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Turn"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""18c4e0dc-39f4-41d0-a06e-1dabf99b7f9f"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Turn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""477cbcd8-79c0-4bea-a570-209efbb7f320"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Turn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""7f639bf9-1436-4e2b-973a-11e5ab78096e"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Turn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""b5bfe0e7-bb1a-42d2-99da-230bda8c2231"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Turn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6eeeba95-f23f-409d-a49e-1c5cc73977ea"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Accelerate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1d298c57-5bc8-4017-a47a-28e48ae68b85"",
+                    ""path"": ""<Joystick>/rz"",
+                    ""interactions"": """",
+                    ""processors"": ""Invert,Normalize(min=-1,max=1,zero=-1)"",
+                    ""groups"": """",
+                    ""action"": ""Accelerate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f9aa21dc-88c4-4523-babb-cd33672f7331"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Brake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c46a822b-51e0-439f-8dc2-4ce566ad471c"",
+                    ""path"": ""<HID::Logitech G29 Driving Force Racing Wheel>/stick/y"",
+                    ""interactions"": """",
+                    ""processors"": ""Normalize(min=-1,max=1,zero=-1)"",
+                    ""groups"": """",
+                    ""action"": ""Brake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
 }");
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
-        m_Gameplay_Accelerate = m_Gameplay.FindAction("Accelerate", throwIfNotFound: true);
-        m_Gameplay_Decelerate = m_Gameplay.FindAction("Decelerate", throwIfNotFound: true);
+        m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
         m_Gameplay_Brake = m_Gameplay.FindAction("Brake", throwIfNotFound: true);
-        m_Gameplay_Turn = m_Gameplay.FindAction("Turn", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause_Button = m_UI.FindAction("Pause_Button", throwIfNotFound: true);
+        // Drive
+        m_Drive = asset.FindActionMap("Drive", throwIfNotFound: true);
+        m_Drive_Accelerate = m_Drive.FindAction("Accelerate", throwIfNotFound: true);
+        m_Drive_Brake = m_Drive.FindAction("Brake", throwIfNotFound: true);
+        m_Drive_Turn = m_Drive.FindAction("Turn", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -311,18 +375,14 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
     // Gameplay
     private readonly InputActionMap m_Gameplay;
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
-    private readonly InputAction m_Gameplay_Accelerate;
-    private readonly InputAction m_Gameplay_Decelerate;
+    private readonly InputAction m_Gameplay_Movement;
     private readonly InputAction m_Gameplay_Brake;
-    private readonly InputAction m_Gameplay_Turn;
     public struct GameplayActions
     {
         private @Car_Control_Actions m_Wrapper;
         public GameplayActions(@Car_Control_Actions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Accelerate => m_Wrapper.m_Gameplay_Accelerate;
-        public InputAction @Decelerate => m_Wrapper.m_Gameplay_Decelerate;
+        public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
         public InputAction @Brake => m_Wrapper.m_Gameplay_Brake;
-        public InputAction @Turn => m_Wrapper.m_Gameplay_Turn;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -332,34 +392,22 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_GameplayActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_GameplayActionsCallbackInterfaces.Add(instance);
-            @Accelerate.started += instance.OnAccelerate;
-            @Accelerate.performed += instance.OnAccelerate;
-            @Accelerate.canceled += instance.OnAccelerate;
-            @Decelerate.started += instance.OnDecelerate;
-            @Decelerate.performed += instance.OnDecelerate;
-            @Decelerate.canceled += instance.OnDecelerate;
+            @Movement.started += instance.OnMovement;
+            @Movement.performed += instance.OnMovement;
+            @Movement.canceled += instance.OnMovement;
             @Brake.started += instance.OnBrake;
             @Brake.performed += instance.OnBrake;
             @Brake.canceled += instance.OnBrake;
-            @Turn.started += instance.OnTurn;
-            @Turn.performed += instance.OnTurn;
-            @Turn.canceled += instance.OnTurn;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
         {
-            @Accelerate.started -= instance.OnAccelerate;
-            @Accelerate.performed -= instance.OnAccelerate;
-            @Accelerate.canceled -= instance.OnAccelerate;
-            @Decelerate.started -= instance.OnDecelerate;
-            @Decelerate.performed -= instance.OnDecelerate;
-            @Decelerate.canceled -= instance.OnDecelerate;
+            @Movement.started -= instance.OnMovement;
+            @Movement.performed -= instance.OnMovement;
+            @Movement.canceled -= instance.OnMovement;
             @Brake.started -= instance.OnBrake;
             @Brake.performed -= instance.OnBrake;
             @Brake.canceled -= instance.OnBrake;
-            @Turn.started -= instance.OnTurn;
-            @Turn.performed -= instance.OnTurn;
-            @Turn.canceled -= instance.OnTurn;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -423,15 +471,81 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // Drive
+    private readonly InputActionMap m_Drive;
+    private List<IDriveActions> m_DriveActionsCallbackInterfaces = new List<IDriveActions>();
+    private readonly InputAction m_Drive_Accelerate;
+    private readonly InputAction m_Drive_Brake;
+    private readonly InputAction m_Drive_Turn;
+    public struct DriveActions
+    {
+        private @Car_Control_Actions m_Wrapper;
+        public DriveActions(@Car_Control_Actions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Accelerate => m_Wrapper.m_Drive_Accelerate;
+        public InputAction @Brake => m_Wrapper.m_Drive_Brake;
+        public InputAction @Turn => m_Wrapper.m_Drive_Turn;
+        public InputActionMap Get() { return m_Wrapper.m_Drive; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DriveActions set) { return set.Get(); }
+        public void AddCallbacks(IDriveActions instance)
+        {
+            if (instance == null || m_Wrapper.m_DriveActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_DriveActionsCallbackInterfaces.Add(instance);
+            @Accelerate.started += instance.OnAccelerate;
+            @Accelerate.performed += instance.OnAccelerate;
+            @Accelerate.canceled += instance.OnAccelerate;
+            @Brake.started += instance.OnBrake;
+            @Brake.performed += instance.OnBrake;
+            @Brake.canceled += instance.OnBrake;
+            @Turn.started += instance.OnTurn;
+            @Turn.performed += instance.OnTurn;
+            @Turn.canceled += instance.OnTurn;
+        }
+
+        private void UnregisterCallbacks(IDriveActions instance)
+        {
+            @Accelerate.started -= instance.OnAccelerate;
+            @Accelerate.performed -= instance.OnAccelerate;
+            @Accelerate.canceled -= instance.OnAccelerate;
+            @Brake.started -= instance.OnBrake;
+            @Brake.performed -= instance.OnBrake;
+            @Brake.canceled -= instance.OnBrake;
+            @Turn.started -= instance.OnTurn;
+            @Turn.performed -= instance.OnTurn;
+            @Turn.canceled -= instance.OnTurn;
+        }
+
+        public void RemoveCallbacks(IDriveActions instance)
+        {
+            if (m_Wrapper.m_DriveActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IDriveActions instance)
+        {
+            foreach (var item in m_Wrapper.m_DriveActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_DriveActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public DriveActions @Drive => new DriveActions(this);
     public interface IGameplayActions
     {
-        void OnAccelerate(InputAction.CallbackContext context);
-        void OnDecelerate(InputAction.CallbackContext context);
+        void OnMovement(InputAction.CallbackContext context);
         void OnBrake(InputAction.CallbackContext context);
-        void OnTurn(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
         void OnPause_Button(InputAction.CallbackContext context);
+    }
+    public interface IDriveActions
+    {
+        void OnAccelerate(InputAction.CallbackContext context);
+        void OnBrake(InputAction.CallbackContext context);
+        void OnTurn(InputAction.CallbackContext context);
     }
 }

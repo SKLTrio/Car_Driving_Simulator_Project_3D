@@ -1,85 +1,63 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class Car_Behaviour : MonoBehaviour
+public class Car_Behavior : MonoBehaviour
 {
-    InputAction accelerate, brakePedal, turn;
-
-    CharacterController characterController;
-    public Transform cameraContainer;
+    private Rigidbody rigidBody;
 
     public float maxSpeed = 10f;
-    float speed = 0f;
-    float accelerationMutliplier = 0.2f;
-    float defaultDrag = 0.01f;
-    float breakDrag = 0.1f;
-    float drag = 0.2f;
+    public float accelerationSpeed = 1f;
+    public float decelerationSpeed = 1f;
+    public float decelerationSpeedOverTime = 0.25f;
+    public float steerAngle = 10f;
+    public float steerSpeed = 0.02f;
 
-    public float mouseSensitivity = 0.2f;
-    public float gravity = 20.0f;
-    public float lookUpClamp = -5f;
-    public float lookDownClamp = 20f;
+    private float currentSpeed = 0f;
+    private bool isGrounded;
 
-    Vector3 moveDirection = Vector3.zero;
-    float rotateYaw, rotatePitch;
-
-    private void OnEnable()
+    private void Awake()
     {
-        GameManager.Input_Manager_Script.inputActions.Gameplay.Enable();
+        rigidBody = GetComponent<Rigidbody>();
     }
 
-    private void OnDisable()
+    void Update()
     {
-        GameManager.Input_Manager_Script.inputActions.Gameplay.Disable();
+        Movement();
     }
 
-    void Start()
+    void Movement()
     {
-        Cursor.visible = false;
-        characterController = GetComponent<CharacterController>();
+        float accelerateInput = Input.GetAxis("GasPedal");
+        float brakeInput = Input.GetAxis("BrakePedal");
+        float steerInput = Input.GetAxis("Steering");
 
-        GameManager.Input_Manager_Script.inputActions.Gameplay.Accelerate.Enable();
-        GameManager.Input_Manager_Script.inputActions.Gameplay.Brake.Enable();
-        GameManager.Input_Manager_Script.inputActions.Gameplay.Turn.Enable();
-    }
-
-    void FixedUpdate()
-    {
-        Debug.Log("Turn: " + turn.ReadValue<Vector2>().x);
-        Debug.Log("Accelerate: " + accelerate.ReadValue<float>());
-        Debug.Log("Break Pedal: " + brakePedal.ReadValue<float>());
-
-        Locomotion();
-    }
-
-    void Locomotion()
-    {
-        float acceleration = accelerate.ReadValue<float>();
-        float breaking = brakePedal.ReadValue<float>();
-        float turning = turn.ReadValue<Vector2>().x;
-
-        drag = 1 - defaultDrag - (breakDrag * breaking);
-
-        speed += acceleration * accelerationMutliplier;
-        speed *= drag;
-
-        if (speed <= 0.1)
+        if (accelerateInput > 0)
         {
-            speed = 0;
+            currentSpeed = Mathf.MoveTowards(currentSpeed, maxSpeed, accelerationSpeed * Time.deltaTime);
         }
-        else if (speed >= maxSpeed)
+        else if (brakeInput > 0)
         {
-            speed = maxSpeed;
+            currentSpeed = Mathf.MoveTowards(currentSpeed, -maxSpeed, decelerationSpeed * Time.deltaTime);
+        }
+        else
+        {
+            currentSpeed = Mathf.MoveTowards(currentSpeed, 0f, decelerationSpeedOverTime * Time.deltaTime);
         }
 
-        moveDirection = new Vector3(0f, 0f, speed);
-        moveDirection = transform.TransformDirection(moveDirection);
+        Vector3 moveForce = transform.forward * currentSpeed;
+        rigidBody.AddForce(moveForce);
 
-        turning *= speed;
-        turning = Mathf.Clamp(turning, -5f, +5f);
-        transform.Rotate(0f, turning, 0f);
+        float turnAmount = steerInput * steerAngle;
 
-        moveDirection.y -= gravity * Time.deltaTime;
-        characterController.Move(moveDirection * Time.deltaTime);
+        if (turnAmount != 0 && isGrounded)
+        {
+            rigidBody.drag = 4.5f;
+        }
+        else
+        {
+            rigidBody.drag = 3f;
+        }
+
+        Quaternion turnRotation = Quaternion.Euler(0f, turnAmount, 0f);
+        rigidBody.MoveRotation(rigidBody.rotation * turnRotation);
     }
 }
