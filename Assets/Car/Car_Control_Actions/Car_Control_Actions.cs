@@ -31,7 +31,16 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Accelerate"",
                     ""type"": ""Value"",
                     ""id"": ""26483584-f22c-44a5-be53-028f9dacf24a"",
-                    ""expectedControlType"": ""Analog"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Decelerate"",
+                    ""type"": ""Value"",
+                    ""id"": ""177bd3c3-b6a7-45f8-8d91-00308b2f5163"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -81,7 +90,7 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""eff4bd29-c05b-44d8-8638-3f94b068192b"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -165,6 +174,17 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""Turn"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8a72c573-0ab5-4ab4-9b0c-00fdf8fa98a6"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Decelerate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -224,6 +244,7 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Accelerate = m_Gameplay.FindAction("Accelerate", throwIfNotFound: true);
+        m_Gameplay_Decelerate = m_Gameplay.FindAction("Decelerate", throwIfNotFound: true);
         m_Gameplay_Brake = m_Gameplay.FindAction("Brake", throwIfNotFound: true);
         m_Gameplay_Turn = m_Gameplay.FindAction("Turn", throwIfNotFound: true);
         // UI
@@ -291,6 +312,7 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Gameplay;
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_Accelerate;
+    private readonly InputAction m_Gameplay_Decelerate;
     private readonly InputAction m_Gameplay_Brake;
     private readonly InputAction m_Gameplay_Turn;
     public struct GameplayActions
@@ -298,6 +320,7 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
         private @Car_Control_Actions m_Wrapper;
         public GameplayActions(@Car_Control_Actions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Accelerate => m_Wrapper.m_Gameplay_Accelerate;
+        public InputAction @Decelerate => m_Wrapper.m_Gameplay_Decelerate;
         public InputAction @Brake => m_Wrapper.m_Gameplay_Brake;
         public InputAction @Turn => m_Wrapper.m_Gameplay_Turn;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
@@ -312,6 +335,9 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
             @Accelerate.started += instance.OnAccelerate;
             @Accelerate.performed += instance.OnAccelerate;
             @Accelerate.canceled += instance.OnAccelerate;
+            @Decelerate.started += instance.OnDecelerate;
+            @Decelerate.performed += instance.OnDecelerate;
+            @Decelerate.canceled += instance.OnDecelerate;
             @Brake.started += instance.OnBrake;
             @Brake.performed += instance.OnBrake;
             @Brake.canceled += instance.OnBrake;
@@ -325,6 +351,9 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
             @Accelerate.started -= instance.OnAccelerate;
             @Accelerate.performed -= instance.OnAccelerate;
             @Accelerate.canceled -= instance.OnAccelerate;
+            @Decelerate.started -= instance.OnDecelerate;
+            @Decelerate.performed -= instance.OnDecelerate;
+            @Decelerate.canceled -= instance.OnDecelerate;
             @Brake.started -= instance.OnBrake;
             @Brake.performed -= instance.OnBrake;
             @Brake.canceled -= instance.OnBrake;
@@ -397,6 +426,7 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
     public interface IGameplayActions
     {
         void OnAccelerate(InputAction.CallbackContext context);
+        void OnDecelerate(InputAction.CallbackContext context);
         void OnBrake(InputAction.CallbackContext context);
         void OnTurn(InputAction.CallbackContext context);
     }

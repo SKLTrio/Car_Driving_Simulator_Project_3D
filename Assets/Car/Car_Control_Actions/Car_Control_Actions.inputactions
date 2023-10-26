@@ -9,7 +9,16 @@
                     "name": "Accelerate",
                     "type": "Value",
                     "id": "26483584-f22c-44a5-be53-028f9dacf24a",
-                    "expectedControlType": "Analog",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Decelerate",
+                    "type": "Value",
+                    "id": "177bd3c3-b6a7-45f8-8d91-00308b2f5163",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -59,7 +68,7 @@
                 {
                     "name": "",
                     "id": "eff4bd29-c05b-44d8-8638-3f94b068192b",
-                    "path": "<Keyboard>/s",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -143,6 +152,17 @@
                     "action": "Turn",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "8a72c573-0ab5-4ab4-9b0c-00fdf8fa98a6",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Decelerate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

@@ -75015,6 +75015,7 @@ GameObject:
   - component: {fileID: 1169114576}
   - component: {fileID: 1169114572}
   - component: {fileID: 1169114575}
+  - component: {fileID: 1169114577}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -75088,6 +75089,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MenuController: {fileID: 1169114575}
+--- !u!114 &1169114577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169114571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3087bac174580254bbc0e93421ced460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1171641099
 GameObject:
   m_ObjectHideFlags: 0
@@ -92919,11 +92932,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1455658448}
   - component: {fileID: 1455658446}
-  - component: {fileID: 1455658452}
-  - component: {fileID: 1455658450}
-  - component: {fileID: 1455658453}
-  - component: {fileID: 1455658451}
   - component: {fileID: 1455658454}
+  - component: {fileID: 1455658450}
+  - component: {fileID: 1455658455}
+  - component: {fileID: 1455658451}
   m_Layer: 0
   m_Name: Racing_Car
   m_TagString: Car
@@ -93030,50 +93042,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thirdPersonCamera: {fileID: 1621149589}
   firstPersonCamera: {fileID: 1412478345}
---- !u!143 &1455658452
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1455658444}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 1
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1455658453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1455658444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77b6d7874e6fea745ab110a853042329, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraContainer: {fileID: 1621149587}
-  maxSpeed: 30
-  mouseSensitivity: 0.2
-  gravity: 20
-  lookUpClamp: 0
-  lookDownClamp: 0
 --- !u!54 &1455658454
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -93096,11 +93064,32 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!114 &1455658455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455658444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ecb5c8c6c262114b88cf12eb45029b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Max_Speed: 30
+  Acceleration_Speed: 2.5
+  Deceleration_Speed: 4.5
+  Deceleration_Speed_Over_Time: 0.25
+  Steer_Angle: 10
+  Steer_Speed: 0.025
+  Current_Speed: 0
+  Is_Grounded: 0
+  Car: {fileID: 0}
 --- !u!1 &1455912137
 GameObject:
   m_ObjectHideFlags: 0
