@@ -4,55 +4,54 @@ using UnityEngine;
 
 public class Car_Colour_Changer : MonoBehaviour
 {
-    [SerializeField] private Color chosenColor;
-    [SerializeField] private Material sharedMaterial;
-    [SerializeField] private GameObject objectToChange1;
-    [SerializeField] private GameObject objectToChange2;
+    [SerializeField] private Color Chosen_Color;
+    [SerializeField] private Material Shared_Material;
+    [SerializeField] private GameObject Car_Object_1;
+    [SerializeField] private GameObject Car_Object_2;
 
     private void Start()
     {
-        // Load the chosen color from PlayerPrefs
-        string savedColor = PlayerPrefs.GetString("Chosen_Colour");
+        string Saved_Color = PlayerPrefs.GetString("Chosen_Colour");
 
-        if (!string.IsNullOrEmpty(savedColor))
+        if (!string.IsNullOrEmpty(Saved_Color))
         {
-            Debug.Log(savedColor);
+            Debug.Log(Saved_Color);
             Debug.Log("WOOHOOO");
-            if (ColorUtility.TryParseHtmlString(savedColor, out Color loadedColor))
+            if (ColorUtility.TryParseHtmlString(Saved_Color, out Color Loaded_Color))
             {
                 Debug.Log("YAAAAY");
-                chosenColor = loadedColor;
+                Chosen_Color = Loaded_Color;
             }
             else
             {
-                chosenColor = Color.white;
+                Chosen_Color = Color.white;
             }
 
             // Change the materials of the objects
-            ChangeObjectMaterials(objectToChange1);
-            ChangeObjectMaterials(objectToChange2);
+            Change_Object_Materials(Car_Object_1);
+            Change_Object_Materials(Car_Object_2);
         }
     }
 
-    private void ChangeObjectMaterials(GameObject obj)
+    public void Change_UI()
     {
-        Renderer objectRenderer = obj.GetComponent<Renderer>();
-        if (objectRenderer != null)
+
+    }
+
+    private void Change_Object_Materials(GameObject Car)
+    {
+        Renderer Car_Renderer = Car.GetComponent<Renderer>();
+        if (Car_Renderer != null)
         {
-            objectRenderer.material = sharedMaterial; // Assign the shared material to the object.
-            objectRenderer.material.color = chosenColor; // Change the color of the shared material.
+            Car_Renderer.material = Shared_Material; // Assign the shared material to the object.
+            Car_Renderer.material.color = Chosen_Color; // Change the color of the shared material.
         }
     }
 
     public void ResetCarColor()
     {
-        chosenColor = Color.white;
-        ChangeObjectMaterials(objectToChange1);
-        ChangeObjectMaterials(objectToChange2);
+        Chosen_Color = Color.white;
+        Change_Object_Materials(Car_Object_1);
+        Change_Object_Materials(Car_Object_2);
     }
 }
-
-
-
-
-

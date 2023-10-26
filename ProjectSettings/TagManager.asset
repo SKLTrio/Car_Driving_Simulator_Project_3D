@@ -8,6 +8,7 @@ TagManager:
   - Oil_Spill_Spawn_Point
   - Car
   - Color_Changeable_Object
+  - Coin_Spawn_Point
   layers:
   - Default
   - TransparentFX

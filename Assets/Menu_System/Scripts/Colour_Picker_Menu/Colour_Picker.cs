@@ -23,6 +23,6 @@ public class Colour_Picker : MonoBehaviour
         Chosen_Colour = new Color(R, G, B);
 
         Colour_Image.color = Chosen_Colour;
-        Menu_Controller.SaveChosenColour(Chosen_Colour);
+        Menu_Controller.Save_Chosen_Colour(Chosen_Colour);
     }
 }

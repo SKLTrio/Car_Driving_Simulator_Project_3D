@@ -7,9 +7,11 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public UIManager UIManager { get; private set; }
 
+    public Menu_Controller MenuController;
+
     private static float secondsSinceStart = 0;
     private static int score;
-    private static double LapCount = 0;
+    public static double LapCount = 0;
     private static string EndTime;
     private static string Result;
     public static bool LapMade;
@@ -22,8 +24,11 @@ public class GameManager : MonoBehaviour
             Destroy(this);
             return;
         }
+        
         Instance = this;
+        
         UIManager = GetComponent<UIManager>();
+        MenuController = GetComponent<Menu_Controller>();
     }
 
     // Update is called once per frame

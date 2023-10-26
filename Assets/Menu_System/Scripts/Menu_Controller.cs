@@ -34,6 +34,9 @@ public class Menu_Controller : MonoBehaviour
 
     public Car_Colour_Changer Car_Colour_Changer_Script;
 
+    [SerializeField]
+    public GameObject Car_Colour_Button;
+
     void Update()
     {
         Pause_Menu();
@@ -77,7 +80,7 @@ public class Menu_Controller : MonoBehaviour
 
     public void Return_To_Main_Menu()
     {
-        Resume();
+        //Resume();
         Cursor.visible = true;
         SceneManager.LoadScene(Start_Menu_Scene);
     }
@@ -94,7 +97,7 @@ public class Menu_Controller : MonoBehaviour
         Debug.Log("You have quit the game!");
         Application.Quit();
 
-        Car_Colour_Changer_Script.ResetCarColor();
+        Reset_Car_Color();
     }
 
     public void Start_High_Score_Menu_Open()
@@ -120,16 +123,25 @@ public class Menu_Controller : MonoBehaviour
     public void Start_Car_Colour_Menu_Open()
     {
         Start_Car_Colour_Panel.SetActive(true);
+        Car_Colour_Button.SetActive(false);
     }
 
     public void Start_Car_Colour_Menu_Close()
     {
         Start_Car_Colour_Panel.SetActive(false);
+        Car_Colour_Button.SetActive(true);
     }
-    public void SaveChosenColour(Color Chosen_Colour)
+    public void Save_Chosen_Colour(Color Chosen_Colour)
     {
         PlayerPrefs.SetString("Chosen_Colour", "#" + ColorUtility.ToHtmlStringRGB(Chosen_Colour));
         Debug.Log("Saved Colour Is:" + Chosen_Colour);
+    }
+
+    public void Reset_Car_Color()
+    {
+        Color defaultColor = Color.white;
+        PlayerPrefs.SetString("Chosen_Colour", ColorUtility.ToHtmlStringRGB(defaultColor));
+        PlayerPrefs.Save();
     }
 
     public void Congrats_Panel_Load()
