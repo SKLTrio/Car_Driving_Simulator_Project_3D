@@ -1,25 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-
-    public static Input_Manager InputManager { get; private set; }
-
     public UIManager UIManager { get; private set; }
-
-    public Menu_Controller MenuController;
+    public static InputManager InputManager { get; private set; }
 
     private static float secondsSinceStart = 0;
     private static int score;
-    public static int LapCount = 0;
+    private static double LapCount = 0;
     private static string EndTime;
     private static string Result;
     public static bool LapMade;
-    public static int TotalLap = 1;
 
     // Start is called before the first frame update
     void Awake()
@@ -29,12 +25,9 @@ public class GameManager : MonoBehaviour
             Destroy(this);
             return;
         }
-        
         Instance = this;
-        
         UIManager = GetComponent<UIManager>();
-        MenuController = GetComponent<Menu_Controller>();
-        InputManager = this.GetOrAddComponent<Input_Manager>();
+        InputManager = this.GetOrAddComponent<InputManager>();
     }
 
     // Update is called once per frame
@@ -60,12 +53,9 @@ public class GameManager : MonoBehaviour
     {
         ResetScore();
         secondsSinceStart = 0f;
-        Menu_Controller.Is_Game_Paused = false;
-        Time.timeScale = 1f;
-
     }
 
-    public static void ResetScore()
+    private static void ResetScore()
     {
         score = 0;
         Instance.UIManager.UpdateScoreUI(score);
@@ -77,7 +67,7 @@ public class GameManager : MonoBehaviour
         if (LapMade == true)
         {
             LapCount += 1;
-            Instance.UIManager.UpdateLapNumUI(LapCount, TotalLap);
+            //Instance.UIManager.UpdateLapNumUI(LapCount);
         }
     }
 
@@ -86,20 +76,15 @@ public class GameManager : MonoBehaviour
         LapMade = true;
     }
 
-    public static void Final_Results()
-    {
-        Result = score.ToString();
-        EndTime = System.TimeSpan.FromSeconds(secondsSinceStart).ToString("hh':'mm':'ss");
-    }
-
-    public static string Final_Result()
-    {
-        return Result;
-    }
-
-    public static string Final_Time()
-    {
-        return EndTime;
-        
-    }
+    //public void GameOver(string sType)
+    //{
+    //    EndTime = System.TimeSpan.FromSeconds(secondsSinceStart).ToString("mm':'ss");
+    //    Time.timeScale = 0f;
+    //    MenuController.IsGamePaused = true;
+    //    Debug.Log(EndTime);
+    //    Result = sType;
+    //    Debug.Log(Result);
+    //    instance.UIManager.ActivateEndGame(score, sType);
+    //    HighScoreSystem.CheckHighScore(score, EndTime, Result);
+    //}
 }

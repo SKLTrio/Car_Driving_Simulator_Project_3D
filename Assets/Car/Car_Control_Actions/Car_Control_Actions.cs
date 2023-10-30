@@ -24,87 +24,6 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
     ""name"": ""Car_Control_Actions"",
     ""maps"": [
         {
-            ""name"": ""Gameplay"",
-            ""id"": ""f954c9a7-481b-4c5f-b7e8-bcd5efc5140e"",
-            ""actions"": [
-                {
-                    ""name"": ""Movement"",
-                    ""type"": ""Value"",
-                    ""id"": ""6fcb7505-088c-4ae7-8a3b-c93557534626"",
-                    ""expectedControlType"": ""Analog"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Brake"",
-                    ""type"": ""Value"",
-                    ""id"": ""ab580cbf-1b0e-466b-9233-5594c6252e9d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": ""Keyboard"",
-                    ""id"": ""3638c81d-4d16-466c-ae16-c63cf5fc4e64"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""932ceb29-8682-4278-80e4-9aaf28251e77"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""55cdf3a0-9514-4d33-bc10-f80b373d6743"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""729b82f3-8d5c-4fde-82d7-e1ad4854cb1b"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""2a46e6f1-8148-4fb0-b025-b982dc1d90b0"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                }
-            ]
-        },
-        {
             ""name"": ""UI"",
             ""id"": ""425e3465-c77a-40eb-8c92-0e3a32aa64e0"",
             ""actions"": [
@@ -155,7 +74,7 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Drive"",
+            ""name"": ""Gameplay"",
             ""id"": ""e0096796-d097-4da5-b44f-493bd8ba07a9"",
             ""actions"": [
                 {
@@ -168,7 +87,7 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Brake"",
+                    ""name"": ""BrakePedal"",
                     ""type"": ""Value"",
                     ""id"": ""ca60727a-501a-4fd1-883f-c5c893746749"",
                     ""expectedControlType"": ""Analog"",
@@ -187,17 +106,6 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""e3bfbb82-f69f-4cc1-a47f-3e3472f210e2"",
-                    ""path"": ""<HID::Logitech G29 Driving Force Racing Wheel>/stick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Turn"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": ""Keyboard"",
                     ""id"": ""7ef0c803-b4d6-4e51-9f22-ecb85d564f57"",
@@ -282,18 +190,29 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Brake"",
+                    ""action"": ""BrakePedal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""c46a822b-51e0-439f-8dc2-4ce566ad471c"",
-                    ""path"": ""<HID::Logitech G29 Driving Force Racing Wheel>/stick/y"",
+                    ""path"": ""<Joystick>/stick/y"",
                     ""interactions"": """",
                     ""processors"": ""Normalize(min=-1,max=1,zero=-1)"",
                     ""groups"": """",
-                    ""action"": ""Brake"",
+                    ""action"": ""BrakePedal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3bfbb82-f69f-4cc1-a47f-3e3472f210e2"",
+                    ""path"": ""<Joystick>/stick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Turn"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -302,18 +221,14 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
-        // Gameplay
-        m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
-        m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
-        m_Gameplay_Brake = m_Gameplay.FindAction("Brake", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause_Button = m_UI.FindAction("Pause_Button", throwIfNotFound: true);
-        // Drive
-        m_Drive = asset.FindActionMap("Drive", throwIfNotFound: true);
-        m_Drive_Accelerate = m_Drive.FindAction("Accelerate", throwIfNotFound: true);
-        m_Drive_Brake = m_Drive.FindAction("Brake", throwIfNotFound: true);
-        m_Drive_Turn = m_Drive.FindAction("Turn", throwIfNotFound: true);
+        // Gameplay
+        m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
+        m_Gameplay_Accelerate = m_Gameplay.FindAction("Accelerate", throwIfNotFound: true);
+        m_Gameplay_BrakePedal = m_Gameplay.FindAction("BrakePedal", throwIfNotFound: true);
+        m_Gameplay_Turn = m_Gameplay.FindAction("Turn", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -372,60 +287,6 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Gameplay
-    private readonly InputActionMap m_Gameplay;
-    private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
-    private readonly InputAction m_Gameplay_Movement;
-    private readonly InputAction m_Gameplay_Brake;
-    public struct GameplayActions
-    {
-        private @Car_Control_Actions m_Wrapper;
-        public GameplayActions(@Car_Control_Actions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
-        public InputAction @Brake => m_Wrapper.m_Gameplay_Brake;
-        public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(GameplayActions set) { return set.Get(); }
-        public void AddCallbacks(IGameplayActions instance)
-        {
-            if (instance == null || m_Wrapper.m_GameplayActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_GameplayActionsCallbackInterfaces.Add(instance);
-            @Movement.started += instance.OnMovement;
-            @Movement.performed += instance.OnMovement;
-            @Movement.canceled += instance.OnMovement;
-            @Brake.started += instance.OnBrake;
-            @Brake.performed += instance.OnBrake;
-            @Brake.canceled += instance.OnBrake;
-        }
-
-        private void UnregisterCallbacks(IGameplayActions instance)
-        {
-            @Movement.started -= instance.OnMovement;
-            @Movement.performed -= instance.OnMovement;
-            @Movement.canceled -= instance.OnMovement;
-            @Brake.started -= instance.OnBrake;
-            @Brake.performed -= instance.OnBrake;
-            @Brake.canceled -= instance.OnBrake;
-        }
-
-        public void RemoveCallbacks(IGameplayActions instance)
-        {
-            if (m_Wrapper.m_GameplayActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IGameplayActions instance)
-        {
-            foreach (var item in m_Wrapper.m_GameplayActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_GameplayActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public GameplayActions @Gameplay => new GameplayActions(this);
-
     // UI
     private readonly InputActionMap m_UI;
     private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
@@ -472,80 +333,75 @@ public partial class @Car_Control_Actions: IInputActionCollection2, IDisposable
     }
     public UIActions @UI => new UIActions(this);
 
-    // Drive
-    private readonly InputActionMap m_Drive;
-    private List<IDriveActions> m_DriveActionsCallbackInterfaces = new List<IDriveActions>();
-    private readonly InputAction m_Drive_Accelerate;
-    private readonly InputAction m_Drive_Brake;
-    private readonly InputAction m_Drive_Turn;
-    public struct DriveActions
+    // Gameplay
+    private readonly InputActionMap m_Gameplay;
+    private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
+    private readonly InputAction m_Gameplay_Accelerate;
+    private readonly InputAction m_Gameplay_BrakePedal;
+    private readonly InputAction m_Gameplay_Turn;
+    public struct GameplayActions
     {
         private @Car_Control_Actions m_Wrapper;
-        public DriveActions(@Car_Control_Actions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Accelerate => m_Wrapper.m_Drive_Accelerate;
-        public InputAction @Brake => m_Wrapper.m_Drive_Brake;
-        public InputAction @Turn => m_Wrapper.m_Drive_Turn;
-        public InputActionMap Get() { return m_Wrapper.m_Drive; }
+        public GameplayActions(@Car_Control_Actions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Accelerate => m_Wrapper.m_Gameplay_Accelerate;
+        public InputAction @BrakePedal => m_Wrapper.m_Gameplay_BrakePedal;
+        public InputAction @Turn => m_Wrapper.m_Gameplay_Turn;
+        public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(DriveActions set) { return set.Get(); }
-        public void AddCallbacks(IDriveActions instance)
+        public static implicit operator InputActionMap(GameplayActions set) { return set.Get(); }
+        public void AddCallbacks(IGameplayActions instance)
         {
-            if (instance == null || m_Wrapper.m_DriveActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_DriveActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_GameplayActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_GameplayActionsCallbackInterfaces.Add(instance);
             @Accelerate.started += instance.OnAccelerate;
             @Accelerate.performed += instance.OnAccelerate;
             @Accelerate.canceled += instance.OnAccelerate;
-            @Brake.started += instance.OnBrake;
-            @Brake.performed += instance.OnBrake;
-            @Brake.canceled += instance.OnBrake;
+            @BrakePedal.started += instance.OnBrakePedal;
+            @BrakePedal.performed += instance.OnBrakePedal;
+            @BrakePedal.canceled += instance.OnBrakePedal;
             @Turn.started += instance.OnTurn;
             @Turn.performed += instance.OnTurn;
             @Turn.canceled += instance.OnTurn;
         }
 
-        private void UnregisterCallbacks(IDriveActions instance)
+        private void UnregisterCallbacks(IGameplayActions instance)
         {
             @Accelerate.started -= instance.OnAccelerate;
             @Accelerate.performed -= instance.OnAccelerate;
             @Accelerate.canceled -= instance.OnAccelerate;
-            @Brake.started -= instance.OnBrake;
-            @Brake.performed -= instance.OnBrake;
-            @Brake.canceled -= instance.OnBrake;
+            @BrakePedal.started -= instance.OnBrakePedal;
+            @BrakePedal.performed -= instance.OnBrakePedal;
+            @BrakePedal.canceled -= instance.OnBrakePedal;
             @Turn.started -= instance.OnTurn;
             @Turn.performed -= instance.OnTurn;
             @Turn.canceled -= instance.OnTurn;
         }
 
-        public void RemoveCallbacks(IDriveActions instance)
+        public void RemoveCallbacks(IGameplayActions instance)
         {
-            if (m_Wrapper.m_DriveActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_GameplayActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IDriveActions instance)
+        public void SetCallbacks(IGameplayActions instance)
         {
-            foreach (var item in m_Wrapper.m_DriveActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_GameplayActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_DriveActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_GameplayActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public DriveActions @Drive => new DriveActions(this);
-    public interface IGameplayActions
-    {
-        void OnMovement(InputAction.CallbackContext context);
-        void OnBrake(InputAction.CallbackContext context);
-    }
+    public GameplayActions @Gameplay => new GameplayActions(this);
     public interface IUIActions
     {
         void OnPause_Button(InputAction.CallbackContext context);
     }
-    public interface IDriveActions
+    public interface IGameplayActions
     {
         void OnAccelerate(InputAction.CallbackContext context);
-        void OnBrake(InputAction.CallbackContext context);
+        void OnBrakePedal(InputAction.CallbackContext context);
         void OnTurn(InputAction.CallbackContext context);
     }
 }

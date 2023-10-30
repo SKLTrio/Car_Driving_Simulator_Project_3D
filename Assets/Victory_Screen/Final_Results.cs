@@ -12,11 +12,11 @@ public class Final_Results : MonoBehaviour
 
     private void Start()
     {
-        GameManager.Final_Result();
-        GameManager.Final_Time();
+        //GameManager.Final_Result();
+        //GameManager.Final_Time();
 
-        Final_Score.text = GameManager.Final_Result();
-        Final_Time.text = GameManager.Final_Time();
+        //Final_Score.text = GameManager.Final_Result();
+        //Final_Time.text = GameManager.Final_Time();
     }
 
 }

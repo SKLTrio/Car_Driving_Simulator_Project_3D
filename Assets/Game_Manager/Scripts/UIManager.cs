@@ -43,7 +43,7 @@ public class UIManager : MonoBehaviour
 
         if (lap == TotalLap)
         {
-            GameManager.Final_Results();
+            //GameManager.Final_Results();
             Menu_Controller_Script.Victory_Scene_Load();
         }
 

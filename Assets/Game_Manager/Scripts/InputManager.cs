@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Input_Manager : MonoBehaviour
+public class InputManager : MonoBehaviour
 {
     public Car_Control_Actions inputActions;
     public event Action<InputActionMap> actionMapChange;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -75088,7 +75088,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6a00a4eac15bd42821c182cfb51f1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MenuController: {fileID: 1169114575}
 --- !u!114 &1169114577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92935,7 +92934,6 @@ GameObject:
   - component: {fileID: 1455658454}
   - component: {fileID: 1455658450}
   - component: {fileID: 1455658451}
-  - component: {fileID: 1455658455}
   m_Layer: 0
   m_Name: Racing_Car
   m_TagString: Car
@@ -92974,27 +92972,6 @@ MonoBehaviour:
     m_ActionName: 'UI/Pause_Button[/Keyboard/escape]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1455658455}
-        m_TargetAssemblyTypeName: Car_Behaviour_2, Assembly-CSharp
-        m_MethodName: Brake
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: ab580cbf-1b0e-466b-9233-5594c6252e9d
-    m_ActionName: 'Gameplay/Brake[/Keyboard/s,/44F B684/stick/y]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 6fcb7505-088c-4ae7-8a3b-c93557534626
-    m_ActionName: 'Gameplay/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Logitech
-      G29 Driving Force Racing Wheel/rz,/Logitech G29 Driving Force Racing Wheel/z]'
-  - m_PersistentCalls:
-      m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DriveLocomotion, Assembly-CSharp
         m_MethodName: Locomotion
@@ -93019,17 +92996,9 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 34aa9ba9-8c0b-48d8-9682-f72eb5d28d34
     m_ActionName: 'Drive/Turn[/Logitech G29 Driving Force Racing Wheel/stick,/Keyboard/a,/Keyboard/d]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3c8d5b21-e400-4715-ab50-fd1d9389b913
-    m_ActionName: 'Gameplay/Steer[/Logitech G29 Driving Force Racing Wheel/stick]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 371faaed-2ef8-459d-a5b5-db7f18344e4f
-    m_ActionName: Gameplay/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Drive
+  m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!4 &1455658448
@@ -93112,27 +93081,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &1455658455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1455658444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea5c009dae3398458e68170d70e5972, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Max_Speed: 10
-  Acceleration_Speed: 1
-  Deceleration_Speed: 1
-  Deceleration_Speed_Over_Time: 0.25
-  Steer_Angle: 12
-  Steer_Speed: 0.025
-  Current_Speed: 0
-  Is_Grounded: 0
-  Car: {fileID: 1455658444}
 --- !u!1 &1455912137
 GameObject:
   m_ObjectHideFlags: 0
