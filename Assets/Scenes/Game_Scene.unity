@@ -83814,8 +83814,8 @@ GameObject:
   - component: {fileID: 1455658446}
   - component: {fileID: 1455658447}
   - component: {fileID: 1455658450}
-  - component: {fileID: 1455658449}
   - component: {fileID: 1455658451}
+  - component: {fileID: 1455658452}
   m_Layer: 0
   m_Name: Racing_Car
   m_TagString: Car
@@ -83849,41 +83849,21 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1455658449}
-        m_TargetAssemblyTypeName: Car_Behaviour_2, Assembly-CSharp
-        m_MethodName: Movement
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 469bb56c-8645-446e-b986-83a30dc1c2c0
-    m_ActionName: 'Gameplay/New action[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1455658449}
-        m_TargetAssemblyTypeName: Car_Behaviour_2, Assembly-CSharp
-        m_MethodName: Brake
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: c721e893-83e4-4dec-a216-c586ebf8cd90
-    m_ActionName: 'Gameplay/Brake[/Keyboard/space,/XInputControllerWindows/buttonSouth]'
-  - m_PersistentCalls:
       m_Calls: []
     m_ActionId: f44bb0db-3684-4d53-8e74-a1e84479f3b1
     m_ActionName: UI/New action
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0be6c78d-5e30-4364-9ca6-2bc14c571e11
+    m_ActionName: 'Gameplay/Accelerate[/Keyboard/w]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f53e2dce-ce4c-4603-a291-121aba8093d2
+    m_ActionName: 'Gameplay/BrakePedal[/Keyboard/s]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4c62d5e9-31dd-4f3c-91f1-cde9d6f089a2
+    m_ActionName: 'Gameplay/Turn[/Keyboard/a,/Keyboard/d]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -83934,27 +83914,6 @@ Transform:
   - {fileID: 1412478343}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1455658449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1455658444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea5c009dae3398458e68170d70e5972, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Max_Speed: 30
-  Acceleration_Speed: 2.5
-  Deceleration_Speed: 4.5
-  Deceleration_Speed_Over_Time: 0.5
-  Steer_Angle: 10
-  Steer_Speed: 0.025
-  Current_Speed: 0
-  Is_Grounded: 0
-  Car: {fileID: 1455658444}
 --- !u!65 &1455658450
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -83990,6 +83949,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thirdPersonCamera: {fileID: 1621149589}
   firstPersonCamera: {fileID: 1412478345}
+--- !u!114 &1455658452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455658444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c762c1ea4c88f23449e0fc34887ccb19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Max_Speed: 60
+  Acceleration_Speed: 4.5
+  Deceleration_Speed: 4.5
+  Deceleration_Speed_Over_Time: 2
+  Steer_Speed: 0.1
+  Current_Speed: 0
+  Is_Grounded: 0
+  Car: {fileID: 1455658444}
 --- !u!1 &1455912137
 GameObject:
   m_ObjectHideFlags: 0

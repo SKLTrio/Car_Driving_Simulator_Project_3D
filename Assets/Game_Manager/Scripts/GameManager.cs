@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public UIManager UIManager { get; private set; }
+    public static InputManager InputManager { get; private set; }
 
     private static float secondsSinceStart = 0;
     private static int score;
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         UIManager = GetComponent<UIManager>();
+        InputManager = this.GetOrAddComponent<InputManager>();
     }
 
     // Update is called once per frame
