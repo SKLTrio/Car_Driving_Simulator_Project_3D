@@ -75013,7 +75013,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1169114574}
   - component: {fileID: 1169114576}
-  - component: {fileID: 1169114577}
   - component: {fileID: 1169114572}
   - component: {fileID: 1169114575}
   m_Layer: 0
@@ -75086,18 +75085,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe6a00a4eac15bd42821c182cfb51f1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1169114577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169114571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3087bac174580254bbc0e93421ced460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1171641099
@@ -92934,6 +92921,7 @@ GameObject:
   - component: {fileID: 1455658454}
   - component: {fileID: 1455658450}
   - component: {fileID: 1455658451}
+  - component: {fileID: 1455658455}
   m_Layer: 0
   m_Name: Racing_Car
   m_TagString: Car
@@ -93081,6 +93069,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &1455658455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455658444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b26251b1affac3b4c8867d541a65236f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Max_Speed: 60
+  Acceleration_Speed: 15
+  Deceleration_Speed: 20
+  Deceleration_Speed_Over_Time: 2
+  Steer_Speed: 3
+  Current_Speed: 0
+  Is_Grounded: 0
+  Car: {fileID: 1455658444}
 --- !u!1 &1455912137
 GameObject:
   m_ObjectHideFlags: 0

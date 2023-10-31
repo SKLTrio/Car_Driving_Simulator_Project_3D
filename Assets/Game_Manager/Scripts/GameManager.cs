@@ -12,11 +12,11 @@ public class GameManager : MonoBehaviour
 
     private static float secondsSinceStart = 0;
     private static int score;
-    private static double LapCount = 0;
-    private static string EndTime;
+    private static int LapCount = 0;
+    private static int EndTime;
     private static string Result;
     public static bool LapMade;
-
+    private static int laptotal = 1;
     // Start is called before the first frame update
     void Awake()
     {
@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
         if (LapMade == true)
         {
             LapCount += 1;
-            //Instance.UIManager.UpdateLapNumUI(LapCount);
+            Instance.UIManager.UpdateLapNumUI(LapCount, laptotal);
         }
     }
 
@@ -75,7 +75,15 @@ public class GameManager : MonoBehaviour
     {
         LapMade = true;
     }
-
+    public static string Final_Result()
+    {
+        return score.ToString();
+    }
+    
+    public static string Final_Time()
+    {
+        return secondsSinceStart.ToString();
+    }
     //public void GameOver(string sType)
     //{
     //    EndTime = System.TimeSpan.FromSeconds(secondsSinceStart).ToString("mm':'ss");
