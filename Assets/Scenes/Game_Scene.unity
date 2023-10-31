@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -92934,6 +92934,7 @@ GameObject:
   - component: {fileID: 1455658454}
   - component: {fileID: 1455658450}
   - component: {fileID: 1455658451}
+  - component: {fileID: 1455658455}
   m_Layer: 0
   m_Name: Racing_Car
   m_TagString: Car
@@ -93081,6 +93082,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &1455658455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455658444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b26251b1affac3b4c8867d541a65236f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Max_Speed: 60
+  Acceleration_Speed: 4.5
+  Deceleration_Speed: 4.5
+  Deceleration_Speed_Over_Time: 2
+  Steer_Speed: 0.1
+  Current_Speed: 0
+  Is_Grounded: 0
+  Car: {fileID: 1455658444}
 --- !u!1 &1455912137
 GameObject:
   m_ObjectHideFlags: 0

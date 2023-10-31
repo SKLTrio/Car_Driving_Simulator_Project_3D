@@ -8,7 +8,7 @@ public class Oil_Spill_Interaction : MonoBehaviour
     {
         if (Collider.tag == "Car")
         {
-            Car_Behaviour_2 Car_Behaviour_Script = Collider.GetComponent<Car_Behaviour_2>();
+            Test_Car_Control Car_Behaviour_Script = Collider.GetComponent<Test_Car_Control>();
 
             if (Car_Behaviour_Script != null)
             {
