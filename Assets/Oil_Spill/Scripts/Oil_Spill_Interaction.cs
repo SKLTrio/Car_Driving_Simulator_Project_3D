@@ -6,27 +6,14 @@ public class Oil_Spill_Interaction : MonoBehaviour
 {
     private void OnTriggerEnter(Collider Collider)
     {
-        if (Collider.CompareTag("Car"))
+        if (Collider.tag == "Car")
         {
-            Car_Behaviour_2 Car_Behaviour_Script = GetComponent<Car_Behaviour_2>();
+            Test_Car_Control Car_Behaviour_Script = Collider.GetComponent<Test_Car_Control>();
 
             if (Car_Behaviour_Script != null)
             {
-                Debug.Log("Car found on: " + Car_Behaviour_Script.gameObject.name);
-                Car_Behaviour_Script.Current_Speed = 1f;
-                Debug.Log("YAAAAAY");
+                Car_Behaviour_Script.Current_Speed = 0.5f;
             }
-
-            else
-            {
-                Debug.Log("BOOOOOO #2");
-            }
-            
-        }
-
-        else
-        {
-            Debug.Log("BOOOOOO #1");
         }
     }
 }

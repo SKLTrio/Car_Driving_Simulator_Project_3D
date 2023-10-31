@@ -2,22 +2,13 @@
     "name": "Car_Control_Actions",
     "maps": [
         {
-            "name": "Gameplay",
-            "id": "f954c9a7-481b-4c5f-b7e8-bcd5efc5140e",
+            "name": "UI",
+            "id": "425e3465-c77a-40eb-8c92-0e3a32aa64e0",
             "actions": [
                 {
-                    "name": "Movement",
-                    "type": "Value",
-                    "id": "469bb56c-8645-446e-b986-83a30dc1c2c0",
-                    "expectedControlType": "Analog",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Brake",
+                    "name": "Pause_Button",
                     "type": "Button",
-                    "id": "c721e893-83e4-4dec-a216-c586ebf8cd90",
+                    "id": "253e3699-ed76-4aae-90ed-46fcc080fc3a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -26,200 +17,180 @@
             ],
             "bindings": [
                 {
-                    "name": "WASD - Keyboard",
-                    "id": "d25eec22-fe7d-4737-88b8-00d7f9a2b3c4",
+                    "name": "",
+                    "id": "22a84b2f-1a86-495f-b517-d2d70b7ad5e0",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause_Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "17d53823-f552-45ec-be9f-90310ce815fa",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause_Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "38b970cd-871b-4a38-99c5-e0983b05ae77",
+                    "path": "<Joystick>/button3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause_Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Gameplay",
+            "id": "e0096796-d097-4da5-b44f-493bd8ba07a9",
+            "actions": [
+                {
+                    "name": "Accelerate",
+                    "type": "Value",
+                    "id": "9a1e4a2b-81ca-460d-985e-b585c6d695fd",
+                    "expectedControlType": "Analog",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "BrakePedal",
+                    "type": "Value",
+                    "id": "ca60727a-501a-4fd1-883f-c5c893746749",
+                    "expectedControlType": "Analog",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Turn",
+                    "type": "Value",
+                    "id": "34aa9ba9-8c0b-48d8-9682-f72eb5d28d34",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "Keyboard",
+                    "id": "7ef0c803-b4d6-4e51-9f22-ecb85d564f57",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Turn",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "up",
-                    "id": "6a8e4d98-832c-4460-8f02-a3e6d6e9d4f9",
-                    "path": "<Keyboard>/w",
+                    "id": "18c4e0dc-39f4-41d0-a06e-1dabf99b7f9f",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Turn",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "down",
-                    "id": "fed9e245-584f-478a-a23a-4e1e9fdbf494",
-                    "path": "<Keyboard>/s",
+                    "id": "477cbcd8-79c0-4bea-a570-209efbb7f320",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Turn",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "left",
-                    "id": "afb4e8cc-a87b-4b87-b6b4-d97f8adde9f9",
+                    "id": "7f639bf9-1436-4e2b-973a-11e5ab78096e",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Turn",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "right",
-                    "id": "99456f7a-1895-429c-8140-e1ce74e42e3d",
+                    "id": "b5bfe0e7-bb1a-42d2-99da-230bda8c2231",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Turn",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Move - Controller",
-                    "id": "c61f2382-232b-45e7-a8bc-04259fee7640",
-                    "path": "2DVector",
+                    "name": "",
+                    "id": "6eeeba95-f23f-409d-a49e-1c5cc73977ea",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
-                    "isComposite": true,
+                    "action": "Accelerate",
+                    "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
-                    "id": "b443a729-8023-4d68-a25d-497648c125fe",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "a2c9556a-6c0e-4956-b757-74ab74a86cfc",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "0b8f43d8-1783-4f8b-9149-ee3dc613869c",
-                    "path": "<Gamepad>/leftStick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "921bb0b5-466c-4608-92f6-97f9b97930e2",
-                    "path": "<Gamepad>/leftStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Move - Joystick_Wheel",
-                    "id": "fe7db266-892f-4a3c-b891-619f870a86ab",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "d0db4cb0-599d-4c52-a594-c4044558250c",
+                    "name": "",
+                    "id": "1d298c57-5bc8-4017-a47a-28e48ae68b85",
                     "path": "<Joystick>/rz",
                     "interactions": "",
                     "processors": "Invert,Normalize(min=-1,max=1,zero=-1)",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Accelerate",
                     "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "28246f2a-bb3d-4fdd-bd8c-84ca4536cfc9",
-                    "path": "<Joystick>/slider",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "f944cd19-3a3a-4387-8b8a-63cde37f2c31",
-                    "path": "<Joystick>/stick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "a6f0575e-028f-416b-820e-b2dcfc9229b2",
-                    "path": "<Joystick>/stick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "1a7d564b-99a9-4f06-89c3-490455fb6a78",
+                    "id": "f9aa21dc-88c4-4523-babb-cd33672f7331",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Brake",
+                    "action": "BrakePedal",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "9c288e68-c97e-466c-8bf8-cfe685d6a412",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Brake",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "543373e8-8012-4cb0-9133-2c765e6b02aa",
+                    "id": "c46a822b-51e0-439f-8dc2-4ce566ad471c",
                     "path": "<Joystick>/stick/y",
                     "interactions": "",
                     "processors": "Normalize(min=-1,max=1,zero=-1)",
                     "groups": "",
-                    "action": "Brake",
+                    "action": "BrakePedal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e3bfbb82-f69f-4cc1-a47f-3e3472f210e2",
+                    "path": "<Joystick>/stick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turn",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
