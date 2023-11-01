@@ -89,7 +89,9 @@ public class Menu_Controller : MonoBehaviour
     {
         Cursor.visible = false;
         SceneManager.LoadScene(Game_Scene);
+        GameManager.ResetGame();
         Time.timeScale = 1f;
+
 
     }
 
@@ -97,7 +99,6 @@ public class Menu_Controller : MonoBehaviour
     {
         Debug.Log("You have quit the game!");
         Application.Quit();
-
         Reset_Car_Color();
     }
 
