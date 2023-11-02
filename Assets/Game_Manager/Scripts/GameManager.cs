@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
     
     public static string Final_Time()
     {
-        return secondsSinceStart.ToString();
+        return secondsSinceStart.ToString("F2");
     }
     //public void GameOver(string sType)
     //{
