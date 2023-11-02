@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
     {
         ResetScore();
         secondsSinceStart = 0f;
+        LapCount = 0;
     }
 
     private static void ResetScore()
